@@ -34,13 +34,21 @@ EOF
 cp /tmp/ankiconnect_config.json "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/config.json"
 
 # Update the user config file (meta.json) which overrides config.json
+echo "Updating AnkiConnect configuration..."
 if [ -f "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json" ]; then
+    echo "Found existing meta.json. Injecting 0.0.0.0 bind..."
     jq '.config = $newconf[0]' --slurpfile newconf /tmp/ankiconnect_config.json "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json" > /tmp/meta.json.tmp
     mv /tmp/meta.json.tmp "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json"
 else
-    # Create new meta.json using jq to safely insert the config object
-    jq -n --argjson newconf "$(< /tmp/ankiconnect_config.json)" '{name: "AnkiConnect", mod: 0, config: $newconf}' > "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json"
+    echo "No meta.json found. Creating a new one..."
+    # Create new meta.json using jq to safely insert the config object (avoiding dash syntax errors with cat)
+    jq -n --argjson newconf "$(cat /tmp/ankiconnect_config.json)" '{name: "AnkiConnect", mod: 0, config: $newconf}' > "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json"
 fi
+
+echo "--- FINAL config.json ---"
+cat "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/config.json"
+echo "--- FINAL meta.json ---"
+cat "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json"
 
 # Start Anki
 exec anki
