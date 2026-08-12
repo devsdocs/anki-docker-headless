@@ -18,31 +18,51 @@ The short answer: **AnkiWeb is for humans; AnkiConnect is for machines.**
 
 ---
 
-## Deployment (via Coolify or Docker)
+## Deployment (via Coolify v4)
 
-This image is optimized for deployment platforms like [Coolify](https://coolify.io/), but it can be run using standard Docker or Docker Compose.
+This image is heavily optimized for deployment on [Coolify](https://coolify.io/). Follow these steps to get your server running perfectly:
 
-### 1. Environment Variables / Build Arguments
-You must provide the following environment variables to start the container securely. Coolify also allows you to override the Anki build version via Environment Variables.
+### 1. Create the Resource
+1. In your Coolify dashboard, create a new resource and select **Public Repository**.
+2. **Repository URL:** `https://github.com/devsdocs/anki-docker-server.git`
+3. **Branch:** `master`
+4. Leave the Build Pack as `Nixpacks` or `Dockerfile` (Coolify will automatically detect the Dockerfile).
 
-| Variable | Description | Example |
-| :--- | :--- | :--- |
-| `VNC_PASSWORD` | **Required.** The password required to access the Anki Web GUI in your browser. | `my_secure_vnc_password` |
-| `ANKI_VERSION` | *Optional.* Set this to a specific Anki release tag to build that version. | `24.06.3` |
+### 2. Configure Networking (Domains & Ports)
+Because this container serves both a Web GUI and an API, it exposes two separate ports. You need to map two different subdomains to them.
+1. Scroll down to the **Ports Exposes** field and make sure it is exactly: `5800,8765`
+2. In the **Domains** field, input both of your subdomains with their respective container ports appended to them, separated by a comma. 
+   - **Syntax:** `https://ui-domain.com:5800,https://api-domain.com:8765`
+   - **Example:** `https://anki-ui.yourdomain.com:5800,https://anki-api.yourdomain.com:8765`
+   
+*(Coolify's Traefik proxy will automatically read this and route traffic securely to the correct internal ports!)*
 
-### 2. Volumes (Persistent Data)
-You must mount a persistent volume to store your Anki profile, downloaded media, and sync sessions. If you don't do this, you will lose your decks when the container restarts.
+### 3. Environment Variables
+You must provide a password to securely lock down your Anki Web GUI. 
+1. Go to the **Environment Variables** tab.
+2. Add a new variable:
+   - **Name:** `VNC_PASSWORD`
+   - **Value:** `my_super_secret_password` (Choose your own password)
+*(Optional: You can also set `ANKI_VERSION=24.06.3` if you want to pin a specific Anki release instead of pulling the latest).*
 
-- **Container Path:** `/config`
-- **Coolify Setup:** In your Coolify application settings, go to Storage and map a persistent volume to `/config`.
+### 4. Persistent Storage (CRITICAL)
+If you do not map a volume, you will lose your entire Anki collection when the container restarts!
+1. Go to the **Storage** tab in Coolify.
+2. Add a new volume mapping:
+   - **Source:** (Leave blank or name it `anki-data`)
+   - **Destination:** `/config`
+3. Click Save.
 
-#### For Existing Anki Users (Bring Your Own Data)
-If you already use Anki on your desktop and want to skip the massive initial download, you can mount your existing local Anki folder to `/config/.local/share/Anki2` inside the container:
+### 5. Deploy!
+Click **Deploy** at the top right of the screen. Wait for the build to finish, and your server is online!
+
+---
+
+#### Bring Your Own Data (Optional)
+If you already use Anki on your desktop and want to skip the massive initial download, you can upload your existing local Anki folder directly into your server's `/config/.local/share/Anki2` directory via SFTP before starting the container:
 - **Windows:** `%APPDATA%\Anki2`
 - **Mac:** `~/Library/Application Support/Anki2`
 - **Linux:** `~/.local/share/Anki2`
-
-*(Upload these files via SFTP to your server's mapped volume location).*
 
 ---
 
