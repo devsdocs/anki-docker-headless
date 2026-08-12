@@ -100,6 +100,20 @@ curl https://anki-api.yourdomain.com -X POST -d '{
 
 ---
 
+## 📦 Client API Wrappers
+
+This repository also includes client libraries inside the `client/` folder to make it easy to interact with the AnkiConnect API from your own scripts. These wrappers use custom, generated models for both request parameters and responses, providing a clean developer experience over the raw JSON-RPC interface.
+
+Inside the `client/` directory, you will find:
+- **`openapi.json`**: An OpenAPI 3.0 specification mapping all actions, parameters, and return types for AnkiConnect.
+- **`ts/`**: TypeScript wrapper.
+- **`python/`**: Python wrapper (with `@dataclass` typing).
+- **`dart/`**: Dart wrapper.
+
+Each language subdirectory contains its own `README.md` with specific usage instructions and code examples. If you want to update or regenerate these wrappers from the latest AnkiConnect documentation, simply run `python generate_clients.py` inside the `client/` directory!
+
+---
+
 ## 🛠️ Customizing AnkiConnect
 If you need to change advanced AnkiConnect settings (like `webCorsOriginList`), you can find the generated `meta.json` inside your mapped volume at:
 `/config/.local/share/Anki2/addons21/2055492159/meta.json`
