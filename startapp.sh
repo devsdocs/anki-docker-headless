@@ -5,15 +5,6 @@ set -e
 export ANKI_DATA_DIR=/config/.local/share/Anki2
 export ANKICONNECT_ID=2055492159
 
-# Download AnkiConnect if it doesn't exist
-if [ ! -d "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}" ]; then
-    echo "Downloading AnkiConnect..."
-    mkdir -p "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}"
-    wget -q https://ankiweb.net/shared/download/${ANKICONNECT_ID} -O /tmp/ankiconnect.zip
-    unzip -o /tmp/ankiconnect.zip -d "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}"
-    rm /tmp/ankiconnect.zip
-fi
-
 # Configure AnkiConnect (API Token & Web Bind)
 if [ -z "$ANKI_API_TOKEN" ]; then
     echo "ERROR: ANKI_API_TOKEN environment variable must be set to protect the AnkiConnect API."
@@ -30,23 +21,31 @@ cat <<EOF > /tmp/ankiconnect_config.json
 }
 EOF
 
-# Update the default config file
-cp /tmp/ankiconnect_config.json "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/config.json"
-
-# Update the user config file (meta.json) which overrides config.json
-echo "Updating AnkiConnect configuration..."
-if [ -f "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json" ]; then
-    echo "Found existing meta.json. Injecting 0.0.0.0 bind..."
-    jq '.config = $newconf[0]' --slurpfile newconf /tmp/ankiconnect_config.json "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json" > /tmp/meta.json.tmp
-    mv /tmp/meta.json.tmp "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json"
+echo "Checking if AnkiConnect is installed..."
+if [ -d "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}" ]; then
+    echo "AnkiConnect directory found. Applying secure configuration..."
+    
+    # Update the default config file
+    cp /tmp/ankiconnect_config.json "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/config.json"
+    
+    # Update the user config file (meta.json) which overrides config.json
+    if [ -f "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json" ]; then
+        echo "Found existing meta.json. Injecting 0.0.0.0 bind..."
+        jq '.config = $newconf[0]' --slurpfile newconf /tmp/ankiconnect_config.json "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json" > /tmp/meta.json.tmp
+        mv /tmp/meta.json.tmp "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json"
+    else
+        echo "No meta.json found yet. Anki will create it upon next manual configuration."
+    fi
+    
+    echo "--- FINAL config.json ---"
+    cat "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/config.json"
+    if [ -f "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json" ]; then
+        echo "--- FINAL meta.json ---"
+        cat "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json"
+    fi
 else
-    echo "No meta.json found. Waiting for user to manually install the add-on through the GUI."
+    echo "AnkiConnect is NOT installed yet. Please install add-on ${ANKICONNECT_ID} via the GUI."
 fi
-
-echo "--- FINAL config.json ---"
-cat "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/config.json"
-echo "--- FINAL meta.json ---"
-cat "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json"
 
 # Start Anki
 exec anki
