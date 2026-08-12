@@ -21,7 +21,7 @@ if [ -z "$ANKI_API_TOKEN" ]; then
 fi
 echo "AnkiConnect API Token is set."
 
-cat <<EOF > "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/config.json"
+cat <<EOF > /tmp/ankiconnect_config.json
 {
     "apiKey": "$ANKI_API_TOKEN",
     "webBindAddress": "0.0.0.0",
@@ -29,6 +29,23 @@ cat <<EOF > "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/config.json"
     "webCorsOriginList": ["*"]
 }
 EOF
+
+# Update the default config file
+cp /tmp/ankiconnect_config.json "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/config.json"
+
+# Update the user config file (meta.json) which overrides config.json
+if [ -f "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json" ]; then
+    jq ".config = \$(cat /tmp/ankiconnect_config.json)" "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json" > /tmp/meta.json.tmp
+    mv /tmp/meta.json.tmp "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json"
+else
+    cat <<EOF > "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json"
+{
+    "name": "AnkiConnect",
+    "mod": 0,
+    "config": $(cat /tmp/ankiconnect_config.json)
+}
+EOF
+fi
 
 # Start Anki
 exec anki
