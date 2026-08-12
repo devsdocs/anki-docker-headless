@@ -28,8 +28,10 @@ RUN ARCH=$(uname -m) && \
     echo "Fetching Anki version: ${ANKI_VERSION} with suffix ${SUFFIX} for architecture ${ARCH}" && \
     wget -q --no-check-certificate https://github.com/ankitects/anki/releases/download/${ANKI_VERSION}/anki-${ANKI_VERSION}-${SUFFIX}.tar.zst && \
     tar -xf anki-${ANKI_VERSION}-${SUFFIX}.tar.zst && \
-    cd anki-${ANKI_VERSION}-${SUFFIX} && \
+    EXTRACTED_DIR=$(find . -maxdepth 1 -type d -name "anki-*" | head -n 1) && \
+    cd "$EXTRACTED_DIR" && \
     ./install.sh && \
+    cd / && \
     rm -rf /tmp/*
 
 # Copy our custom startup script that the baseimage will execute
