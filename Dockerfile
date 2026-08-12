@@ -1,4 +1,4 @@
-FROM jlesage/baseimage-gui:ubuntu-22.04-v4.6.3
+FROM jlesage/baseimage-gui:ubuntu-24.04-v4
 
 ENV APP_NAME="Anki"
 ENV ANKICONNECT_ID=2055492159
