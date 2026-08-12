@@ -54,7 +54,12 @@ Once deployed, navigate to the domain/port mapped to `5800` (e.g., `https://anki
 2. Once authenticated, you will see the full Anki Desktop app.
 3. Click **Sync** at the top right, log into your AnkiWeb account, and click **Download from AnkiWeb** to pull your decks for the first time.
 4. **Install AnkiConnect:** Go to *Tools -> Add-ons -> Get Add-ons...* and type the code `2055492159`. Click OK to install.
-5. **Configure AnkiConnect:** In the Add-ons window, select AnkiConnect and click **Config**. You must make two critical changes to allow remote access:
+5. **CRITICAL STEP - Configure AnkiConnect:** In the Add-ons window, select AnkiConnect and click **Config**. 
+
+> [!IMPORTANT]
+> If you do not perform this step, the API will be completely inaccessible from outside the container.
+
+You must make two changes to the JSON configuration:
    - Change `"webBindAddress": "127.0.0.1"` to `"0.0.0.0"`
    - Change `"apiKey": null` to `"any_secure_password_you_want"` (you will use this password to authenticate your API requests).
 6. Click OK, then restart Anki (*File -> Exit*). The container will instantly restart and your API will be online!
