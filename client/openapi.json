@@ -1,0 +1,3751 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Anki Connect API",
+    "version": "6"
+  },
+  "paths": {
+    "/": {
+      "post": {
+        "summary": "Anki Connect endpoint",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "getEaseFactorsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "getEaseFactors"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "getEaseFactorsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "setEaseFactorsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "setEaseFactors"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "setEaseFactorsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "setSpecificValueOfCardRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "setSpecificValueOfCard"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "setSpecificValueOfCardResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "suspendRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "suspend"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "suspendResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "unsuspendRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "unsuspend"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "unsuspendResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "suspendedRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "suspended"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "suspendedResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "areSuspendedRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "areSuspended"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "areSuspendedResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "areDueRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "areDue"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "areDueResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "getIntervalsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "getIntervals"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "getIntervalsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "findCardsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "findCards"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "findCardsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "cardsToNotesRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "cardsToNotes"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "cardsToNotesResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "cardsModTimeRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "cardsModTime"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "cardsModTimeResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "cardsInfoRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "cardsInfo"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "cardsInfoResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "forgetCardsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "forgetCards"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "forgetCardsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "relearnCardsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "relearnCards"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "relearnCardsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "answerCardsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "answerCards"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "answerCardsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "setDueDateRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "setDueDate"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "setDueDateResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "deckNamesRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "deckNames"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "deckNamesResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "deckNamesAndIdsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "deckNamesAndIds"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "deckNamesAndIdsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "getDecksRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "getDecks"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "getDecksResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "createDeckRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "createDeck"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "createDeckResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "changeDeckRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "changeDeck"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "changeDeckResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "deleteDecksRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "deleteDecks"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "deleteDecksResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "getDeckConfigRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "getDeckConfig"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "getDeckConfigResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "saveDeckConfigRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "saveDeckConfig"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "saveDeckConfigResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "setDeckConfigIdRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "setDeckConfigId"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "setDeckConfigIdResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "cloneDeckConfigIdRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "cloneDeckConfigId"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "cloneDeckConfigIdResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "removeDeckConfigIdRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "removeDeckConfigId"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "removeDeckConfigIdResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "getDeckStatsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "getDeckStats"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "getDeckStatsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "guiBrowseRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "guiBrowse"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "guiBrowseResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "guiSelectCardRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "guiSelectCard"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "guiSelectCardResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "guiSelectedNotesRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "guiSelectedNotes"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "guiSelectedNotesResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "guiAddCardsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "guiAddCards"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "guiAddCardsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "guiEditNoteRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "guiEditNote"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "guiEditNoteResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "guiAddNoteSetDataRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "guiAddNoteSetData"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "guiAddNoteSetDataResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "guiCurrentCardRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "guiCurrentCard"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "guiCurrentCardResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "guiStartCardTimerRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "guiStartCardTimer"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "guiStartCardTimerResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "guiShowQuestionRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "guiShowQuestion"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "guiShowQuestionResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "guiShowAnswerRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "guiShowAnswer"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "guiShowAnswerResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "guiAnswerCardRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "guiAnswerCard"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "guiAnswerCardResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "guiUndoRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "guiUndo"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "guiUndoResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "guiDeckOverviewRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "guiDeckOverview"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "guiDeckOverviewResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "guiDeckBrowserRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "guiDeckBrowser"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "guiDeckBrowserResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "guiDeckReviewRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "guiDeckReview"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "guiDeckReviewResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "guiImportFileRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "guiImportFile"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "guiImportFileResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "guiExitAnkiRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "guiExitAnki"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "guiExitAnkiResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "guiCheckDatabaseRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "guiCheckDatabase"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "guiCheckDatabaseResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "guiPlayAudioRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "guiPlayAudio"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "guiPlayAudioResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "storeMediaFileRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "storeMediaFile"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "storeMediaFileResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "retrieveMediaFileRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "retrieveMediaFile"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "retrieveMediaFileResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "getMediaFilesNamesRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "getMediaFilesNames"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "getMediaFilesNamesResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "getMediaDirPathRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "getMediaDirPath"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "getMediaDirPathResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "deleteMediaFileRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "deleteMediaFile"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "deleteMediaFileResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "requestPermissionRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "requestPermission"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "requestPermissionResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "versionRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "version"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "versionResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "apiReflectRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "apiReflect"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "apiReflectResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "syncRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "sync"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "syncResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "getProfilesRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "getProfiles"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "getProfilesResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "getActiveProfileRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "getActiveProfile"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "getActiveProfileResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "loadProfileRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "loadProfile"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "loadProfileResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "multiRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "multi"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "multiResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "exportPackageRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "exportPackage"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "exportPackageResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "importPackageRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "importPackage"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "importPackageResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "reloadCollectionRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "reloadCollection"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "reloadCollectionResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "modelNamesRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "modelNames"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "modelNamesResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "modelNamesAndIdsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "modelNamesAndIds"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "modelNamesAndIdsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "findModelsByIdRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "findModelsById"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "findModelsByIdResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "findModelsByNameRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "findModelsByName"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "findModelsByNameResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "modelFieldNamesRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "modelFieldNames"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "modelFieldNamesResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "modelFieldDescriptionsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "modelFieldDescriptions"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "modelFieldDescriptionsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "modelFieldFontsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "modelFieldFonts"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "modelFieldFontsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "modelFieldsOnTemplatesRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "modelFieldsOnTemplates"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "modelFieldsOnTemplatesResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "createModelRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "createModel"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "createModelResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "modelTemplatesRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "modelTemplates"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "modelTemplatesResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "modelStylingRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "modelStyling"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "modelStylingResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "updateModelTemplatesRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "updateModelTemplates"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "updateModelTemplatesResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "updateModelStylingRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "updateModelStyling"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "updateModelStylingResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "findAndReplaceInModelsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "findAndReplaceInModels"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "findAndReplaceInModelsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "modelTemplateRenameRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "modelTemplateRename"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "modelTemplateRenameResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "modelTemplateRepositionRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "modelTemplateReposition"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "modelTemplateRepositionResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "modelTemplateAddRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "modelTemplateAdd"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "modelTemplateAddResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "modelTemplateRemoveRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "modelTemplateRemove"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "modelTemplateRemoveResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "modelFieldRenameRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "modelFieldRename"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "modelFieldRenameResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "modelFieldRepositionRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "modelFieldReposition"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "modelFieldRepositionResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "modelFieldAddRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "modelFieldAdd"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "modelFieldAddResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "modelFieldRemoveRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "modelFieldRemove"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "modelFieldRemoveResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "modelFieldSetFontRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "modelFieldSetFont"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "modelFieldSetFontResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "modelFieldSetFontSizeRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "modelFieldSetFontSize"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "modelFieldSetFontSizeResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "modelFieldSetDescriptionRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "modelFieldSetDescription"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "modelFieldSetDescriptionResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "addNoteRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "addNote"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "addNoteResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "addNotesRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "addNotes"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "addNotesResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "canAddNotesRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "canAddNotes"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "canAddNotesResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "canAddNotesWithErrorDetailRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "canAddNotesWithErrorDetail"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "canAddNotesWithErrorDetailResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "updateNoteFieldsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "updateNoteFields"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "updateNoteFieldsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "updateNoteRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "updateNote"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "updateNoteResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "updateNoteModelRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "updateNoteModel"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "updateNoteModelResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "updateNoteTagsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "updateNoteTags"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "updateNoteTagsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "getNoteTagsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "getNoteTags"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "getNoteTagsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "addTagsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "addTags"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "addTagsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "removeTagsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "removeTags"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "removeTagsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "getTagsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "getTags"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "getTagsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "clearUnusedTagsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "clearUnusedTags"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "clearUnusedTagsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "replaceTagsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "replaceTags"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "replaceTagsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "replaceTagsInAllNotesRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "replaceTagsInAllNotes"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "replaceTagsInAllNotesResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "findNotesRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "findNotes"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "findNotesResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "notesInfoRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "notesInfo"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "notesInfoResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "notesModTimeRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "notesModTime"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "notesModTimeResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "deleteNotesRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "deleteNotes"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "deleteNotesResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "removeEmptyNotesRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "removeEmptyNotes"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "removeEmptyNotesResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "getNumCardsReviewedTodayRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "getNumCardsReviewedToday"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "getNumCardsReviewedTodayResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "getNumCardsReviewedByDayRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "getNumCardsReviewedByDay"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "getNumCardsReviewedByDayResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "getCollectionStatsHTMLRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "getCollectionStatsHTML"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "getCollectionStatsHTMLResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "cardReviewsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "cardReviews"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "cardReviewsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "getReviewsOfCardsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "getReviewsOfCards"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "getReviewsOfCardsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "getLatestReviewIDRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "getLatestReviewID"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "getLatestReviewIDResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "insertReviewsRequest": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "insertReviews"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "default": 6
+          },
+          "params": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "action",
+          "version"
+        ]
+      },
+      "insertReviewsResponse": {
+        "type": "object",
+        "properties": {
+          "result": {},
+          "error": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    }
+  }
+}
