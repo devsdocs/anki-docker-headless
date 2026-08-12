@@ -23,13 +23,14 @@ The short answer: **AnkiWeb is for humans; AnkiConnect is for machines.**
 
 This image is optimized for deployment platforms like [Coolify](https://coolify.io/), but it can be run using standard Docker or Docker Compose.
 
-### 1. Environment Variables
-You **must** provide the following environment variables to start the container securely:
+### 1. Environment Variables / Build Arguments
+You must provide the following environment variables to start the container securely. Coolify also allows you to override the Anki build version via Environment Variables.
 
 | Variable | Description | Example |
 | :--- | :--- | :--- |
 | `ANKI_API_TOKEN` | **Required.** The token used to authenticate requests to the AnkiConnect API. | `my_super_secret_api_token` |
 | `VNC_PASSWORD` | **Required.** The password required to access the Anki Web GUI in your browser. | `my_secure_vnc_password` |
+| `ANKI_VERSION` | *Optional.* Set this to a specific Anki release tag to build that version. | `24.06.3` |
 
 ### 2. Volumes (Persistent Data)
 You must mount a persistent volume to store your Anki profile, downloaded media, and sync sessions. If you don't do this, you will lose your decks when the container restarts.
