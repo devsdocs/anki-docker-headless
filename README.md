@@ -14,7 +14,7 @@ The short answer: **AnkiWeb is for humans; AnkiConnect is for machines.**
 ## Features
 - **Web-based GUI**: Access the full Anki desktop application directly from your web browser. No VNC client needed.
 - **Auto-Updating**: Automatically fetches and installs the latest stable Qt6 release of Anki on build.
-- **AnkiConnect Pre-installed**: Exposes the AnkiConnect API (`:8765`) to the internet securely.
+- **AnkiConnect Automated Configuration**: Automatically secures and exposes the AnkiConnect API (`:8765`) to the internet once the add-on is installed.
 - **Environment Variable Security**: Strictly protects both the UI and the API with required tokens/passwords.
 
 ---
@@ -55,7 +55,9 @@ Once deployed, navigate to the domain/port mapped to `5800` (e.g., `https://anki
 1. You will be prompted for the `VNC_PASSWORD`.
 2. Once authenticated, you will see the full Anki Desktop app.
 3. Click **Sync** at the top right, log into your AnkiWeb account, and click **Download from AnkiWeb** to pull your decks for the first time.
-4. You can safely close the browser tab. The Anki process will continue running in the background.
+4. **Install AnkiConnect:** Go to *Tools -> Add-ons -> Get Add-ons...* and type the code `2055492159`. Click OK to install.
+5. **Apply Configuration:** Close the Anki window (*File -> Exit*). The Docker container will instantly restart Anki, automatically detect the add-on, and securely configure it (injecting your API token and binding the port).
+6. You can safely close the browser tab. The Anki process will continue running in the background.
 
 ### 2. The AnkiConnect API (Port 8765)
 You can send HTTP requests to the AnkiConnect API by targeting the domain/port mapped to `8765`. 
@@ -74,5 +76,5 @@ curl https://anki-api.yourdomain.com -X POST -d '{
 ---
 
 ## Customizing AnkiConnect
-If you need to change advanced AnkiConnect settings (like `webCorsOriginList`), you can find the generated `config.json` inside your mapped volume at:
-`/config/.local/share/Anki2/addons21/2055492159/config.json`
+If you need to change advanced AnkiConnect settings (like `webCorsOriginList`), you can find the generated `meta.json` inside your mapped volume at:
+`/config/.local/share/Anki2/addons21/2055492159/meta.json`
