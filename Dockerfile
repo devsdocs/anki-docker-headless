@@ -14,7 +14,7 @@ RUN add-pkg wget curl unzip python3 zstd jq ca-certificates xdg-utils \
     libgl1 libxcomposite1 libxrandr2 libxext6 libsm6 libasound2t64 \
     libdbus-1-3 libgstreamer-gl1.0-0 libgstreamer-plugins-base1.0 libgstreamer1.0-0 \
     libpulse-mainloop-glib0 libxcursor1 libxdamage1 libxi6 libxkbcommon0 \
-    libxkbfile1 libxrender1 libxtst6 libminizip1
+    libxkbfile1 libxrender1 libxtst6 libminizip1 libsnappy1v5
 
 # Set Anki Version (Hardcoded to avoid GitHub API rate limits during build)
 ARG ANKI_VERSION=24.06.3
