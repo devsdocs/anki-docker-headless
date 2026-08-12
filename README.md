@@ -14,8 +14,7 @@ The short answer: **AnkiWeb is for humans; AnkiConnect is for machines.**
 ## Features
 - **Web-based GUI**: Access the full Anki desktop application directly from your web browser. No VNC client needed.
 - **Auto-Updating**: Automatically fetches and installs the latest stable Qt6 release of Anki on build.
-- **AnkiConnect Automated Configuration**: Automatically secures and exposes the AnkiConnect API (`:8765`) to the internet once the add-on is installed.
-- **Environment Variable Security**: Strictly protects both the UI and the API with required tokens/passwords.
+- **Environment Variable Security**: Strictly protects the UI with the required `VNC_PASSWORD` token.
 
 ---
 
@@ -56,8 +55,10 @@ Once deployed, navigate to the domain/port mapped to `5800` (e.g., `https://anki
 2. Once authenticated, you will see the full Anki Desktop app.
 3. Click **Sync** at the top right, log into your AnkiWeb account, and click **Download from AnkiWeb** to pull your decks for the first time.
 4. **Install AnkiConnect:** Go to *Tools -> Add-ons -> Get Add-ons...* and type the code `2055492159`. Click OK to install.
-5. **Apply Configuration:** Close the Anki window (*File -> Exit*). The Docker container will instantly restart Anki, automatically detect the add-on, and securely configure it (injecting your API token and binding the port).
-6. You can safely close the browser tab. The Anki process will continue running in the background.
+5. **Configure AnkiConnect:** In the Add-ons window, select AnkiConnect and click **Config**. You must make two critical changes to allow remote access:
+   - Change `"webBindAddress": "127.0.0.1"` to `"0.0.0.0"`
+   - Change `"apiKey": null` to `"your_secure_api_token"` (this MUST match the token you send in your requests).
+6. Click OK, then restart Anki (*File -> Exit*). The container will instantly restart and your API will be online!
 
 ### 2. The AnkiConnect API (Port 8765)
 You can send HTTP requests to the AnkiConnect API by targeting the domain/port mapped to `8765`. 
