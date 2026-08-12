@@ -103,3 +103,11 @@ curl https://anki-api.yourdomain.com -X POST -d '{
 ## Customizing AnkiConnect
 If you need to change advanced AnkiConnect settings (like `webCorsOriginList`), you can find the generated `meta.json` inside your mapped volume at:
 `/config/.local/share/Anki2/addons21/2055492159/meta.json`
+
+---
+
+## Support
+If this project has saved you some time or helped your workflow, and you're in a position to do so, consider buying me a coffee. There is absolutely no obligation, but any support is deeply appreciated! ☕
+
+- [Sponsor on GitHub](https://github.com/sponsors/devsdocs)
+- [Support on Ko-fi](https://ko-fi.com/devsdocs)
