@@ -14,7 +14,13 @@ RUN add-pkg wget curl unzip python3 zstd jq ca-certificates xdg-utils \
     libgl1 libxcomposite1 libxrandr2 libxext6 libsm6 libasound2t64 \
     libdbus-1-3 libgstreamer-gl1.0-0 libgstreamer-plugins-base1.0 libgstreamer1.0-0 \
     libpulse-mainloop-glib0 libxcursor1 libxdamage1 libxi6 libxkbcommon0 \
-    libxkbfile1 libxrender1 libxtst6 libminizip1 libsnappy1v5
+    libxkbfile1 libxrender1 libxtst6 libminizip1 libsnappy1v5 \
+    libgbm1 libdrm2 libx11-xcb1 libice6 libxfixes3 libgtk-3-0 libspeechd2 libflite1 \
+    libwayland-client0 libwayland-cursor0 libwayland-egl1 libnspr4 libpulse0 \
+    libbrotli1 libbz2-1.0 libexpat1 libfreetype6 liblcms2-2 libopus0 libpango-1.0-0 \
+    libtiff6 libudev1 libwebp7 libwebpdemux2 libwebpmux3 libxcb-dri3-0 libxcb-glx0 \
+    libxcb-render0 libxcb-shape0 libxcb-shm0 libxcb-sync1 libxcb-xfixes0 libxcb-xkb1 \
+    libxcb1 zlib1g libzstd1 libgdk-pixbuf-2.0-0 libcups2t64 libgstreamer-plugins-bad1.0-0 libx11-6
 
 # Set Anki Version (Hardcoded to avoid GitHub API rate limits during build)
 ARG ANKI_VERSION=24.06.3
