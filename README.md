@@ -27,7 +27,6 @@ You must provide the following environment variables to start the container secu
 
 | Variable | Description | Example |
 | :--- | :--- | :--- |
-| `ANKI_API_TOKEN` | **Required.** The token used to authenticate requests to the AnkiConnect API. | `my_super_secret_api_token` |
 | `VNC_PASSWORD` | **Required.** The password required to access the Anki Web GUI in your browser. | `my_secure_vnc_password` |
 | `ANKI_VERSION` | *Optional.* Set this to a specific Anki release tag to build that version. | `24.06.3` |
 
@@ -57,7 +56,7 @@ Once deployed, navigate to the domain/port mapped to `5800` (e.g., `https://anki
 4. **Install AnkiConnect:** Go to *Tools -> Add-ons -> Get Add-ons...* and type the code `2055492159`. Click OK to install.
 5. **Configure AnkiConnect:** In the Add-ons window, select AnkiConnect and click **Config**. You must make two critical changes to allow remote access:
    - Change `"webBindAddress": "127.0.0.1"` to `"0.0.0.0"`
-   - Change `"apiKey": null` to `"your_secure_api_token"` (this MUST match the token you send in your requests).
+   - Change `"apiKey": null` to `"any_secure_password_you_want"` (you will use this password to authenticate your API requests).
 6. Click OK, then restart Anki (*File -> Exit*). The container will instantly restart and your API will be online!
 
 ### 2. The AnkiConnect API (Port 8765)
