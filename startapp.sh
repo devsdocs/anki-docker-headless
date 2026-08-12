@@ -40,9 +40,7 @@ if [ -f "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json" ]; then
     jq '.config = $newconf[0]' --slurpfile newconf /tmp/ankiconnect_config.json "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json" > /tmp/meta.json.tmp
     mv /tmp/meta.json.tmp "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json"
 else
-    echo "No meta.json found. Creating a new one..."
-    # Create new meta.json using jq to safely insert the config object (avoiding dash syntax errors with cat)
-    jq -n --argjson newconf "$(cat /tmp/ankiconnect_config.json)" '{name: "AnkiConnect", mod: 0, config: $newconf}' > "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json"
+    echo "No meta.json found. Waiting for user to manually install the add-on through the GUI."
 fi
 
 echo "--- FINAL config.json ---"
