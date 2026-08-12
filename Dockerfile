@@ -17,12 +17,15 @@ ENV ANKI_VERSION=${ANKI_VERSION}
 
 # Download and install Anki
 WORKDIR /tmp
-RUN if wget -q --spider https://github.com/ankitects/anki/releases/download/${ANKI_VERSION}/anki-${ANKI_VERSION}-linux-x86_64.tar.zst; then \
+RUN ARCH=$(uname -m) && \
+    if [ "$ARCH" = "aarch64" ]; then \
+        SUFFIX="linux-aarch64"; \
+    elif wget -q --spider https://github.com/ankitects/anki/releases/download/${ANKI_VERSION}/anki-${ANKI_VERSION}-linux-x86_64.tar.zst; then \
         SUFFIX="linux-x86_64"; \
     else \
         SUFFIX="linux-qt6"; \
     fi && \
-    echo "Fetching Anki version: ${ANKI_VERSION} with suffix ${SUFFIX}" && \
+    echo "Fetching Anki version: ${ANKI_VERSION} with suffix ${SUFFIX} for architecture ${ARCH}" && \
     wget -q --no-check-certificate https://github.com/ankitects/anki/releases/download/${ANKI_VERSION}/anki-${ANKI_VERSION}-${SUFFIX}.tar.zst && \
     tar -xf anki-${ANKI_VERSION}-${SUFFIX}.tar.zst && \
     cd anki-${ANKI_VERSION}-${SUFFIX} && \
