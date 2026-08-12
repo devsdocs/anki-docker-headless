@@ -35,16 +35,11 @@ cp /tmp/ankiconnect_config.json "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/con
 
 # Update the user config file (meta.json) which overrides config.json
 if [ -f "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json" ]; then
-    jq ".config = \$(cat /tmp/ankiconnect_config.json)" "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json" > /tmp/meta.json.tmp
+    jq '.config = $newconf[0]' --slurpfile newconf /tmp/ankiconnect_config.json "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json" > /tmp/meta.json.tmp
     mv /tmp/meta.json.tmp "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json"
 else
-    cat <<EOF > "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json"
-{
-    "name": "AnkiConnect",
-    "mod": 0,
-    "config": $(cat /tmp/ankiconnect_config.json)
-}
-EOF
+    # Create new meta.json using jq to safely insert the config object
+    jq -n --argjson newconf "$(< /tmp/ankiconnect_config.json)" '{name: "AnkiConnect", mod: 0, config: $newconf}' > "${ANKI_DATA_DIR}/addons21/${ANKICONNECT_ID}/meta.json"
 fi
 
 # Start Anki
