@@ -6,7 +6,7 @@ ENV ANKICONNECT_ID=2055492159
 ENV HOME=/config
 
 # Install dependencies required by Anki Qt6
-RUN add-pkg wget curl unzip python3 zstd jq \
+RUN add-pkg wget curl unzip python3 zstd jq ca-certificates \
     libnss3 libegl1 libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 \
     libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 \
     libopengl0 libglib2.0-0 libxcb-xinerama0 libxcb-cursor0
@@ -15,7 +15,7 @@ RUN add-pkg wget curl unzip python3 zstd jq \
 WORKDIR /tmp
 RUN ANKI_VERSION=$(curl -s https://api.github.com/repos/ankitects/anki/releases/latest | jq -r .tag_name) && \
     echo "Fetching Anki version: ${ANKI_VERSION}" && \
-    wget -q https://github.com/ankitects/anki/releases/download/${ANKI_VERSION}/anki-${ANKI_VERSION}-linux-qt6.tar.zst && \
+    wget -q --no-check-certificate https://github.com/ankitects/anki/releases/download/${ANKI_VERSION}/anki-${ANKI_VERSION}-linux-qt6.tar.zst && \
     tar -xf anki-${ANKI_VERSION}-linux-qt6.tar.zst && \
     cd anki-${ANKI_VERSION}-linux-qt6 && \
     ./install.sh && \
