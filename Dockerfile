@@ -11,10 +11,13 @@ RUN add-pkg wget curl unzip python3 zstd jq ca-certificates \
     libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 \
     libopengl0 libglib2.0-0 libxcb-xinerama0 libxcb-cursor0
 
-# Download and install Anki (auto-fetch latest version)
+# Set Anki Version (Hardcoded to avoid GitHub API rate limits during build)
+ARG ANKI_VERSION=24.06.3
+ENV ANKI_VERSION=${ANKI_VERSION}
+
+# Download and install Anki
 WORKDIR /tmp
-RUN ANKI_VERSION=$(curl -s https://api.github.com/repos/ankitects/anki/releases/latest | jq -r .tag_name) && \
-    echo "Fetching Anki version: ${ANKI_VERSION}" && \
+RUN echo "Fetching Anki version: ${ANKI_VERSION}" && \
     wget -q --no-check-certificate https://github.com/ankitects/anki/releases/download/${ANKI_VERSION}/anki-${ANKI_VERSION}-linux-qt6.tar.zst && \
     tar -xf anki-${ANKI_VERSION}-linux-qt6.tar.zst && \
     cd anki-${ANKI_VERSION}-linux-qt6 && \
