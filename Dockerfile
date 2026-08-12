@@ -6,7 +6,7 @@ ENV ANKICONNECT_ID=2055492159
 ENV HOME=/config
 
 # Install dependencies required by Anki Qt6
-RUN add-pkg wget curl unzip python3 zstd jq ca-certificates \
+RUN add-pkg wget curl unzip python3 zstd jq ca-certificates xdg-utils \
     libnss3 libegl1 libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 \
     libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 \
     libopengl0 libglib2.0-0 libxcb-xinerama0 libxcb-cursor0
