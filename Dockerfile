@@ -11,7 +11,7 @@ RUN add-pkg wget curl unzip python3 zstd jq ca-certificates xdg-utils \
     libnss3 libegl1 libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 \
     libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 \
     libopengl0 libglib2.0-0 libxcb-xinerama0 libxcb-cursor0 fontconfig \
-    libgl1 libxcomposite1 libxrandr2 libxext6 libsm6 libasound2 \
+    libgl1 libxcomposite1 libxrandr2 libxext6 libsm6 libasound2t64 \
     libdbus-1-3 libgstreamer-gl1.0-0 libgstreamer-plugins-base1.0 libgstreamer1.0-0 \
     libpulse-mainloop-glib0 libxcursor1 libxdamage1 libxi6 libxkbcommon0 \
     libxkbfile1 libxrender1 libxtst6 libminizip1
