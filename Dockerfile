@@ -5,13 +5,16 @@ ENV ANKICONNECT_ID=2055492159
 # We set HOME to /config so that the jlesage baseimage automatically handles permissions and persistence for us
 ENV HOME=/config
 
-# Install dependencies required by Anki Qt6
+# Install dependencies required by Anki Qt6 (from official setup-anki action)
 RUN add-pkg wget curl unzip python3 zstd jq ca-certificates xdg-utils \
     shared-mime-info desktop-file-utils hicolor-icon-theme \
     libnss3 libegl1 libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 \
     libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 \
     libopengl0 libglib2.0-0 libxcb-xinerama0 libxcb-cursor0 fontconfig \
-    libgl1 libxcomposite1 libxrandr2 libxext6 libsm6 libasound2
+    libgl1 libxcomposite1 libxrandr2 libxext6 libsm6 libasound2 \
+    libdbus-1-3 libgstreamer-gl1.0-0 libgstreamer-plugins-base1.0 libgstreamer1.0-0 \
+    libpulse-mainloop-glib0 libxcursor1 libxdamage1 libxi6 libxkbcommon0 \
+    libxkbfile1 libxrender1 libxtst6 libminizip1
 
 # Set Anki Version (Hardcoded to avoid GitHub API rate limits during build)
 ARG ANKI_VERSION=24.06.3
