@@ -20,6 +20,9 @@ RUN add-pkg wget curl unzip python3 zstd jq ca-certificates xdg-utils \
 ARG ANKI_VERSION=24.06.3
 ENV ANKI_VERSION=${ANKI_VERSION}
 
+# Disable QtWebEngine sandbox to prevent crashes in Docker environments
+ENV QTWEBENGINE_CHROMIUM_FLAGS="--no-sandbox"
+
 # Download and install Anki
 WORKDIR /tmp
 RUN ARCH=$(uname -m) && \
