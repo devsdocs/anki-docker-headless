@@ -3,9 +3,8 @@ set -e
 
 # Define Anki data paths (using /config which is mapped to a persistent volume by the base image)
 export ANKI_DATA_DIR=/config/.local/share/Anki2
-# Ensure the official AnkiConnect is removed to prevent conflicts
+# (Optional) The official AnkiConnect (2055492159) can safely coexist since we use port 8766
 mkdir -p "$ANKI_DATA_DIR/addons21"
-rm -rf "$ANKI_DATA_DIR/addons21/2055492159"
 
 # Copy the custom AnkiConnect addon to the addons directory
 rm -rf "$ANKI_DATA_DIR/addons21/custom_anki_connect"
