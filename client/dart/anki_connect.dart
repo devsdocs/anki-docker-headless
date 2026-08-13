@@ -6,10 +6,7 @@ class CardsModTimeResponseItem {
   final int? mod;
   CardsModTimeResponseItem({this.cardId, this.mod});
   factory CardsModTimeResponseItem.fromJson(Map<String, dynamic> json) {
-    return CardsModTimeResponseItem(
-      cardId: json['cardId'],
-      mod: json['mod'],
-    );
+    return CardsModTimeResponseItem(cardId: json['cardId'], mod: json['mod']);
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -61,8 +58,12 @@ class CardsInfoResponseItemFields {
   CardsInfoResponseItemFields({this.Front, this.Back});
   factory CardsInfoResponseItemFields.fromJson(Map<String, dynamic> json) {
     return CardsInfoResponseItemFields(
-      Front: json['Front'] != null ? CardsInfoResponseItemFieldsFront.fromJson(json['Front']) : null,
-      Back: json['Back'] != null ? CardsInfoResponseItemFieldsBack.fromJson(json['Back']) : null,
+      Front: json['Front'] != null
+          ? CardsInfoResponseItemFieldsFront.fromJson(json['Front'])
+          : null,
+      Back: json['Back'] != null
+          ? CardsInfoResponseItemFieldsBack.fromJson(json['Back'])
+          : null,
     );
   }
   Map<String, dynamic> toJson() {
@@ -92,7 +93,26 @@ class CardsInfoResponseItem {
   final int? lapses;
   final int? left;
   final int? mod;
-  CardsInfoResponseItem({this.answer, this.question, this.deckName, this.modelName, this.fieldOrder, this.fields, this.css, this.cardId, this.interval, this.note, this.ord, this.type, this.queue, this.due, this.reps, this.lapses, this.left, this.mod});
+  CardsInfoResponseItem({
+    this.answer,
+    this.question,
+    this.deckName,
+    this.modelName,
+    this.fieldOrder,
+    this.fields,
+    this.css,
+    this.cardId,
+    this.interval,
+    this.note,
+    this.ord,
+    this.type,
+    this.queue,
+    this.due,
+    this.reps,
+    this.lapses,
+    this.left,
+    this.mod,
+  });
   factory CardsInfoResponseItem.fromJson(Map<String, dynamic> json) {
     return CardsInfoResponseItem(
       answer: json['answer'],
@@ -100,7 +120,9 @@ class CardsInfoResponseItem {
       deckName: json['deckName'],
       modelName: json['modelName'],
       fieldOrder: json['fieldOrder'],
-      fields: json['fields'] != null ? CardsInfoResponseItemFields.fromJson(json['fields']) : null,
+      fields: json['fields'] != null
+          ? CardsInfoResponseItemFields.fromJson(json['fields'])
+          : null,
       css: json['css'],
       cardId: json['cardId'],
       interval: json['interval'],
@@ -164,9 +186,7 @@ class DeckNamesAndIdsResponse {
   final int? Default;
   DeckNamesAndIdsResponse({this.Default});
   factory DeckNamesAndIdsResponse.fromJson(Map<String, dynamic> json) {
-    return DeckNamesAndIdsResponse(
-      Default: json['Default'],
-    );
+    return DeckNamesAndIdsResponse(Default: json['Default']);
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -196,7 +216,13 @@ class GetDeckConfigResponseLapse {
   final int? minInt;
   final int? leechAction;
   final int? mult;
-  GetDeckConfigResponseLapse({this.leechFails, this.delays, this.minInt, this.leechAction, this.mult});
+  GetDeckConfigResponseLapse({
+    this.leechFails,
+    this.delays,
+    this.minInt,
+    this.leechAction,
+    this.mult,
+  });
   factory GetDeckConfigResponseLapse.fromJson(Map<String, dynamic> json) {
     return GetDeckConfigResponseLapse(
       leechFails: json['leechFails'],
@@ -225,7 +251,15 @@ class GetDeckConfigResponseNew {
   final List<int>? delays;
   final bool? separate;
   final List<int>? ints;
-  GetDeckConfigResponseNew({this.bury, this.order, this.initialFactor, this.perDay, this.delays, this.separate, this.ints});
+  GetDeckConfigResponseNew({
+    this.bury,
+    this.order,
+    this.initialFactor,
+    this.perDay,
+    this.delays,
+    this.separate,
+    this.ints,
+  });
   factory GetDeckConfigResponseNew.fromJson(Map<String, dynamic> json) {
     return GetDeckConfigResponseNew(
       bury: json['bury'],
@@ -258,7 +292,15 @@ class GetDeckConfigResponseRev {
   final int? perDay;
   final int? minSpace;
   final double? fuzz;
-  GetDeckConfigResponseRev({this.bury, this.ivlFct, this.ease4, this.maxIvl, this.perDay, this.minSpace, this.fuzz});
+  GetDeckConfigResponseRev({
+    this.bury,
+    this.ivlFct,
+    this.ease4,
+    this.maxIvl,
+    this.perDay,
+    this.minSpace,
+    this.fuzz,
+  });
   factory GetDeckConfigResponseRev.fromJson(Map<String, dynamic> json) {
     return GetDeckConfigResponseRev(
       bury: json['bury'],
@@ -290,24 +332,43 @@ class GetDeckConfigResponse {
   final int? mod;
   final int? id;
   final int? maxTaken;
-  final GetDeckConfigResponseNew? new;
+  final GetDeckConfigResponseNew? new_;
   final String? name;
   final GetDeckConfigResponseRev? rev;
   final int? timer;
   final bool? replayq;
   final int? usn;
-  GetDeckConfigResponse({this.lapse, this.dyn, this.autoplay, this.mod, this.id, this.maxTaken, this.new, this.name, this.rev, this.timer, this.replayq, this.usn});
+  GetDeckConfigResponse({
+    this.lapse,
+    this.dyn,
+    this.autoplay,
+    this.mod,
+    this.id,
+    this.maxTaken,
+    this.new_,
+    this.name,
+    this.rev,
+    this.timer,
+    this.replayq,
+    this.usn,
+  });
   factory GetDeckConfigResponse.fromJson(Map<String, dynamic> json) {
     return GetDeckConfigResponse(
-      lapse: json['lapse'] != null ? GetDeckConfigResponseLapse.fromJson(json['lapse']) : null,
+      lapse: json['lapse'] != null
+          ? GetDeckConfigResponseLapse.fromJson(json['lapse'])
+          : null,
       dyn: json['dyn'],
       autoplay: json['autoplay'],
       mod: json['mod'],
       id: json['id'],
       maxTaken: json['maxTaken'],
-      new: json['new'] != null ? GetDeckConfigResponseNew.fromJson(json['new']) : null,
+      new_: json['new'] != null
+          ? GetDeckConfigResponseNew.fromJson(json['new'])
+          : null,
       name: json['name'],
-      rev: json['rev'] != null ? GetDeckConfigResponseRev.fromJson(json['rev']) : null,
+      rev: json['rev'] != null
+          ? GetDeckConfigResponseRev.fromJson(json['rev'])
+          : null,
       timer: json['timer'],
       replayq: json['replayq'],
       usn: json['usn'],
@@ -321,7 +382,7 @@ class GetDeckConfigResponse {
     if (mod != null) data['mod'] = mod;
     if (id != null) data['id'] = id;
     if (maxTaken != null) data['maxTaken'] = maxTaken;
-    if (new != null) data['new'] = new!.toJson();
+    if (new_ != null) data['new'] = new_!.toJson();
     if (name != null) data['name'] = name;
     if (rev != null) data['rev'] = rev!.toJson();
     if (timer != null) data['timer'] = timer;
@@ -337,7 +398,13 @@ class SaveDeckConfigConfigLapse {
   final int? minInt;
   final int? leechAction;
   final int? mult;
-  SaveDeckConfigConfigLapse({this.leechFails, this.delays, this.minInt, this.leechAction, this.mult});
+  SaveDeckConfigConfigLapse({
+    this.leechFails,
+    this.delays,
+    this.minInt,
+    this.leechAction,
+    this.mult,
+  });
   factory SaveDeckConfigConfigLapse.fromJson(Map<String, dynamic> json) {
     return SaveDeckConfigConfigLapse(
       leechFails: json['leechFails'],
@@ -366,7 +433,15 @@ class SaveDeckConfigConfigNew {
   final List<int>? delays;
   final bool? separate;
   final List<int>? ints;
-  SaveDeckConfigConfigNew({this.bury, this.order, this.initialFactor, this.perDay, this.delays, this.separate, this.ints});
+  SaveDeckConfigConfigNew({
+    this.bury,
+    this.order,
+    this.initialFactor,
+    this.perDay,
+    this.delays,
+    this.separate,
+    this.ints,
+  });
   factory SaveDeckConfigConfigNew.fromJson(Map<String, dynamic> json) {
     return SaveDeckConfigConfigNew(
       bury: json['bury'],
@@ -399,7 +474,15 @@ class SaveDeckConfigConfigRev {
   final int? perDay;
   final int? minSpace;
   final double? fuzz;
-  SaveDeckConfigConfigRev({this.bury, this.ivlFct, this.ease4, this.maxIvl, this.perDay, this.minSpace, this.fuzz});
+  SaveDeckConfigConfigRev({
+    this.bury,
+    this.ivlFct,
+    this.ease4,
+    this.maxIvl,
+    this.perDay,
+    this.minSpace,
+    this.fuzz,
+  });
   factory SaveDeckConfigConfigRev.fromJson(Map<String, dynamic> json) {
     return SaveDeckConfigConfigRev(
       bury: json['bury'],
@@ -431,24 +514,43 @@ class SaveDeckConfigConfig {
   final int? mod;
   final int? id;
   final int? maxTaken;
-  final SaveDeckConfigConfigNew? new;
+  final SaveDeckConfigConfigNew? new_;
   final String? name;
   final SaveDeckConfigConfigRev? rev;
   final int? timer;
   final bool? replayq;
   final int? usn;
-  SaveDeckConfigConfig({this.lapse, this.dyn, this.autoplay, this.mod, this.id, this.maxTaken, this.new, this.name, this.rev, this.timer, this.replayq, this.usn});
+  SaveDeckConfigConfig({
+    this.lapse,
+    this.dyn,
+    this.autoplay,
+    this.mod,
+    this.id,
+    this.maxTaken,
+    this.new_,
+    this.name,
+    this.rev,
+    this.timer,
+    this.replayq,
+    this.usn,
+  });
   factory SaveDeckConfigConfig.fromJson(Map<String, dynamic> json) {
     return SaveDeckConfigConfig(
-      lapse: json['lapse'] != null ? SaveDeckConfigConfigLapse.fromJson(json['lapse']) : null,
+      lapse: json['lapse'] != null
+          ? SaveDeckConfigConfigLapse.fromJson(json['lapse'])
+          : null,
       dyn: json['dyn'],
       autoplay: json['autoplay'],
       mod: json['mod'],
       id: json['id'],
       maxTaken: json['maxTaken'],
-      new: json['new'] != null ? SaveDeckConfigConfigNew.fromJson(json['new']) : null,
+      new_: json['new'] != null
+          ? SaveDeckConfigConfigNew.fromJson(json['new'])
+          : null,
       name: json['name'],
-      rev: json['rev'] != null ? SaveDeckConfigConfigRev.fromJson(json['rev']) : null,
+      rev: json['rev'] != null
+          ? SaveDeckConfigConfigRev.fromJson(json['rev'])
+          : null,
       timer: json['timer'],
       replayq: json['replayq'],
       usn: json['usn'],
@@ -462,7 +564,7 @@ class SaveDeckConfigConfig {
     if (mod != null) data['mod'] = mod;
     if (id != null) data['id'] = id;
     if (maxTaken != null) data['maxTaken'] = maxTaken;
-    if (new != null) data['new'] = new!.toJson();
+    if (new_ != null) data['new'] = new_!.toJson();
     if (name != null) data['name'] = name;
     if (rev != null) data['rev'] = rev!.toJson();
     if (timer != null) data['timer'] = timer;
@@ -495,10 +597,7 @@ class GuiAddCardsNoteFields {
   final String? Extra;
   GuiAddCardsNoteFields({this.Text, this.Extra});
   factory GuiAddCardsNoteFields.fromJson(Map<String, dynamic> json) {
-    return GuiAddCardsNoteFields(
-      Text: json['Text'],
-      Extra: json['Extra'],
-    );
+    return GuiAddCardsNoteFields(Text: json['Text'], Extra: json['Extra']);
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -535,14 +634,26 @@ class GuiAddCardsNote {
   final GuiAddCardsNoteFields? fields;
   final List<String>? tags;
   final List<GuiAddCardsNotePictureItem>? picture;
-  GuiAddCardsNote({this.deckName, this.modelName, this.fields, this.tags, this.picture});
+  GuiAddCardsNote({
+    this.deckName,
+    this.modelName,
+    this.fields,
+    this.tags,
+    this.picture,
+  });
   factory GuiAddCardsNote.fromJson(Map<String, dynamic> json) {
     return GuiAddCardsNote(
       deckName: json['deckName'],
       modelName: json['modelName'],
-      fields: json['fields'] != null ? GuiAddCardsNoteFields.fromJson(json['fields']) : null,
+      fields: json['fields'] != null
+          ? GuiAddCardsNoteFields.fromJson(json['fields'])
+          : null,
       tags: json['tags'] != null ? List<String>.from(json['tags']) : null,
-      picture: json['picture'] != null ? (json['picture'] as List).map((i) => GuiAddCardsNotePictureItem.fromJson(i)).toList() : null,
+      picture: json['picture'] != null
+          ? (json['picture'] as List)
+                .map((i) => GuiAddCardsNotePictureItem.fromJson(i))
+                .toList()
+          : null,
     );
   }
   Map<String, dynamic> toJson() {
@@ -551,7 +662,8 @@ class GuiAddCardsNote {
     if (modelName != null) data['modelName'] = modelName;
     if (fields != null) data['fields'] = fields!.toJson();
     if (tags != null) data['tags'] = tags;
-    if (picture != null) data['picture'] = picture!.map((i) => i.toJson()).toList();
+    if (picture != null)
+      data['picture'] = picture!.map((i) => i.toJson()).toList();
     return data;
   }
 }
@@ -579,12 +691,19 @@ class GuiAddNoteSetDataNote {
   final String? modelName;
   final GuiAddNoteSetDataNoteFields? fields;
   final List<String>? tags;
-  GuiAddNoteSetDataNote({this.deckName, this.modelName, this.fields, this.tags});
+  GuiAddNoteSetDataNote({
+    this.deckName,
+    this.modelName,
+    this.fields,
+    this.tags,
+  });
   factory GuiAddNoteSetDataNote.fromJson(Map<String, dynamic> json) {
     return GuiAddNoteSetDataNote(
       deckName: json['deckName'],
       modelName: json['modelName'],
-      fields: json['fields'] != null ? GuiAddNoteSetDataNoteFields.fromJson(json['fields']) : null,
+      fields: json['fields'] != null
+          ? GuiAddNoteSetDataNoteFields.fromJson(json['fields'])
+          : null,
       tags: json['tags'] != null ? List<String>.from(json['tags']) : null,
     );
   }
@@ -602,7 +721,9 @@ class GuiCurrentCardResponseFieldsFront {
   final String? value;
   final int? order;
   GuiCurrentCardResponseFieldsFront({this.value, this.order});
-  factory GuiCurrentCardResponseFieldsFront.fromJson(Map<String, dynamic> json) {
+  factory GuiCurrentCardResponseFieldsFront.fromJson(
+    Map<String, dynamic> json,
+  ) {
     return GuiCurrentCardResponseFieldsFront(
       value: json['value'],
       order: json['order'],
@@ -640,8 +761,12 @@ class GuiCurrentCardResponseFields {
   GuiCurrentCardResponseFields({this.Front, this.Back});
   factory GuiCurrentCardResponseFields.fromJson(Map<String, dynamic> json) {
     return GuiCurrentCardResponseFields(
-      Front: json['Front'] != null ? GuiCurrentCardResponseFieldsFront.fromJson(json['Front']) : null,
-      Back: json['Back'] != null ? GuiCurrentCardResponseFieldsBack.fromJson(json['Back']) : null,
+      Front: json['Front'] != null
+          ? GuiCurrentCardResponseFieldsFront.fromJson(json['Front'])
+          : null,
+      Back: json['Back'] != null
+          ? GuiCurrentCardResponseFieldsBack.fromJson(json['Back'])
+          : null,
     );
   }
   Map<String, dynamic> toJson() {
@@ -663,7 +788,18 @@ class GuiCurrentCardResponse {
   final int? cardId;
   final List<int>? buttons;
   final List<String>? nextReviews;
-  GuiCurrentCardResponse({this.answer, this.question, this.deckName, this.modelName, this.fieldOrder, this.fields, this.template, this.cardId, this.buttons, this.nextReviews});
+  GuiCurrentCardResponse({
+    this.answer,
+    this.question,
+    this.deckName,
+    this.modelName,
+    this.fieldOrder,
+    this.fields,
+    this.template,
+    this.cardId,
+    this.buttons,
+    this.nextReviews,
+  });
   factory GuiCurrentCardResponse.fromJson(Map<String, dynamic> json) {
     return GuiCurrentCardResponse(
       answer: json['answer'],
@@ -671,11 +807,15 @@ class GuiCurrentCardResponse {
       deckName: json['deckName'],
       modelName: json['modelName'],
       fieldOrder: json['fieldOrder'],
-      fields: json['fields'] != null ? GuiCurrentCardResponseFields.fromJson(json['fields']) : null,
+      fields: json['fields'] != null
+          ? GuiCurrentCardResponseFields.fromJson(json['fields'])
+          : null,
       template: json['template'],
       cardId: json['cardId'],
       buttons: json['buttons'] != null ? List<int>.from(json['buttons']) : null,
-      nextReviews: json['nextReviews'] != null ? List<String>.from(json['nextReviews']) : null,
+      nextReviews: json['nextReviews'] != null
+          ? List<String>.from(json['nextReviews'])
+          : null,
     );
   }
   Map<String, dynamic> toJson() {
@@ -698,7 +838,11 @@ class RequestPermissionResponse {
   final String? permission;
   final bool? requireApiKey;
   final int? version;
-  RequestPermissionResponse({this.permission, this.requireApiKey, this.version});
+  RequestPermissionResponse({
+    this.permission,
+    this.requireApiKey,
+    this.version,
+  });
   factory RequestPermissionResponse.fromJson(Map<String, dynamic> json) {
     return RequestPermissionResponse(
       permission: json['permission'],
@@ -722,7 +866,9 @@ class ApiReflectResponse {
   factory ApiReflectResponse.fromJson(Map<String, dynamic> json) {
     return ApiReflectResponse(
       scopes: json['scopes'] != null ? List<String>.from(json['scopes']) : null,
-      actions: json['actions'] != null ? List<String>.from(json['actions']) : null,
+      actions: json['actions'] != null
+          ? List<String>.from(json['actions'])
+          : null,
     );
   }
   Map<String, dynamic> toJson() {
@@ -737,9 +883,7 @@ class MultiActionsItem {
   final String? action;
   MultiActionsItem({this.action});
   factory MultiActionsItem.fromJson(Map<String, dynamic> json) {
-    return MultiActionsItem(
-      action: json['action'],
-    );
+    return MultiActionsItem(action: json['action']);
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -753,10 +897,7 @@ class ModelNamesAndIdsResponse {
   final int? Cloze;
   ModelNamesAndIdsResponse({this.Basic, this.Cloze});
   factory ModelNamesAndIdsResponse.fromJson(Map<String, dynamic> json) {
-    return ModelNamesAndIdsResponse(
-      Basic: json['Basic'],
-      Cloze: json['Cloze'],
-    );
+    return ModelNamesAndIdsResponse(Basic: json['Basic'], Cloze: json['Cloze']);
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -777,8 +918,21 @@ class FindModelsByIdResponseItemTmplsItem {
   final String? bfont;
   final int? bsize;
   final int? id;
-  FindModelsByIdResponseItemTmplsItem({this.name, this.ord, this.qfmt, this.afmt, this.bqfmt, this.bafmt, this.did, this.bfont, this.bsize, this.id});
-  factory FindModelsByIdResponseItemTmplsItem.fromJson(Map<String, dynamic> json) {
+  FindModelsByIdResponseItemTmplsItem({
+    this.name,
+    this.ord,
+    this.qfmt,
+    this.afmt,
+    this.bqfmt,
+    this.bafmt,
+    this.did,
+    this.bfont,
+    this.bsize,
+    this.id,
+  });
+  factory FindModelsByIdResponseItemTmplsItem.fromJson(
+    Map<String, dynamic> json,
+  ) {
     return FindModelsByIdResponseItemTmplsItem(
       name: json['name'],
       ord: json['ord'],
@@ -822,8 +976,24 @@ class FindModelsByIdResponseItemFldsItem {
   final int? id;
   final dynamic? tag;
   final bool? preventDeletion;
-  FindModelsByIdResponseItemFldsItem({this.name, this.ord, this.sticky, this.rtl, this.font, this.size, this.description, this.plainText, this.collapsed, this.excludeFromSearch, this.id, this.tag, this.preventDeletion});
-  factory FindModelsByIdResponseItemFldsItem.fromJson(Map<String, dynamic> json) {
+  FindModelsByIdResponseItemFldsItem({
+    this.name,
+    this.ord,
+    this.sticky,
+    this.rtl,
+    this.font,
+    this.size,
+    this.description,
+    this.plainText,
+    this.collapsed,
+    this.excludeFromSearch,
+    this.id,
+    this.tag,
+    this.preventDeletion,
+  });
+  factory FindModelsByIdResponseItemFldsItem.fromJson(
+    Map<String, dynamic> json,
+  ) {
     return FindModelsByIdResponseItemFldsItem(
       name: json['name'],
       ord: json['ord'],
@@ -851,7 +1021,8 @@ class FindModelsByIdResponseItemFldsItem {
     if (description != null) data['description'] = description;
     if (plainText != null) data['plainText'] = plainText;
     if (collapsed != null) data['collapsed'] = collapsed;
-    if (excludeFromSearch != null) data['excludeFromSearch'] = excludeFromSearch;
+    if (excludeFromSearch != null)
+      data['excludeFromSearch'] = excludeFromSearch;
     if (id != null) data['id'] = id;
     if (tag != null) data['tag'] = tag;
     if (preventDeletion != null) data['preventDeletion'] = preventDeletion;
@@ -875,7 +1046,23 @@ class FindModelsByIdResponseItem {
   final bool? latexsvg;
   final List<List<int>>? req;
   final int? originalStockKind;
-  FindModelsByIdResponseItem({this.id, this.name, this.type, this.mod, this.usn, this.sortf, this.did, this.tmpls, this.flds, this.css, this.latexPre, this.latexPost, this.latexsvg, this.req, this.originalStockKind});
+  FindModelsByIdResponseItem({
+    this.id,
+    this.name,
+    this.type,
+    this.mod,
+    this.usn,
+    this.sortf,
+    this.did,
+    this.tmpls,
+    this.flds,
+    this.css,
+    this.latexPre,
+    this.latexPost,
+    this.latexsvg,
+    this.req,
+    this.originalStockKind,
+  });
   factory FindModelsByIdResponseItem.fromJson(Map<String, dynamic> json) {
     return FindModelsByIdResponseItem(
       id: json['id'],
@@ -885,8 +1072,16 @@ class FindModelsByIdResponseItem {
       usn: json['usn'],
       sortf: json['sortf'],
       did: json['did'],
-      tmpls: json['tmpls'] != null ? (json['tmpls'] as List).map((i) => FindModelsByIdResponseItemTmplsItem.fromJson(i)).toList() : null,
-      flds: json['flds'] != null ? (json['flds'] as List).map((i) => FindModelsByIdResponseItemFldsItem.fromJson(i)).toList() : null,
+      tmpls: json['tmpls'] != null
+          ? (json['tmpls'] as List)
+                .map((i) => FindModelsByIdResponseItemTmplsItem.fromJson(i))
+                .toList()
+          : null,
+      flds: json['flds'] != null
+          ? (json['flds'] as List)
+                .map((i) => FindModelsByIdResponseItemFldsItem.fromJson(i))
+                .toList()
+          : null,
       css: json['css'],
       latexPre: json['latexPre'],
       latexPost: json['latexPost'],
@@ -911,7 +1106,8 @@ class FindModelsByIdResponseItem {
     if (latexPost != null) data['latexPost'] = latexPost;
     if (latexsvg != null) data['latexsvg'] = latexsvg;
     if (req != null) data['req'] = req;
-    if (originalStockKind != null) data['originalStockKind'] = originalStockKind;
+    if (originalStockKind != null)
+      data['originalStockKind'] = originalStockKind;
     return data;
   }
 }
@@ -927,8 +1123,21 @@ class FindModelsByNameResponseItemTmplsItem {
   final String? bfont;
   final int? bsize;
   final int? id;
-  FindModelsByNameResponseItemTmplsItem({this.name, this.ord, this.qfmt, this.afmt, this.bqfmt, this.bafmt, this.did, this.bfont, this.bsize, this.id});
-  factory FindModelsByNameResponseItemTmplsItem.fromJson(Map<String, dynamic> json) {
+  FindModelsByNameResponseItemTmplsItem({
+    this.name,
+    this.ord,
+    this.qfmt,
+    this.afmt,
+    this.bqfmt,
+    this.bafmt,
+    this.did,
+    this.bfont,
+    this.bsize,
+    this.id,
+  });
+  factory FindModelsByNameResponseItemTmplsItem.fromJson(
+    Map<String, dynamic> json,
+  ) {
     return FindModelsByNameResponseItemTmplsItem(
       name: json['name'],
       ord: json['ord'],
@@ -972,8 +1181,24 @@ class FindModelsByNameResponseItemFldsItem {
   final int? id;
   final dynamic? tag;
   final bool? preventDeletion;
-  FindModelsByNameResponseItemFldsItem({this.name, this.ord, this.sticky, this.rtl, this.font, this.size, this.description, this.plainText, this.collapsed, this.excludeFromSearch, this.id, this.tag, this.preventDeletion});
-  factory FindModelsByNameResponseItemFldsItem.fromJson(Map<String, dynamic> json) {
+  FindModelsByNameResponseItemFldsItem({
+    this.name,
+    this.ord,
+    this.sticky,
+    this.rtl,
+    this.font,
+    this.size,
+    this.description,
+    this.plainText,
+    this.collapsed,
+    this.excludeFromSearch,
+    this.id,
+    this.tag,
+    this.preventDeletion,
+  });
+  factory FindModelsByNameResponseItemFldsItem.fromJson(
+    Map<String, dynamic> json,
+  ) {
     return FindModelsByNameResponseItemFldsItem(
       name: json['name'],
       ord: json['ord'],
@@ -1001,7 +1226,8 @@ class FindModelsByNameResponseItemFldsItem {
     if (description != null) data['description'] = description;
     if (plainText != null) data['plainText'] = plainText;
     if (collapsed != null) data['collapsed'] = collapsed;
-    if (excludeFromSearch != null) data['excludeFromSearch'] = excludeFromSearch;
+    if (excludeFromSearch != null)
+      data['excludeFromSearch'] = excludeFromSearch;
     if (id != null) data['id'] = id;
     if (tag != null) data['tag'] = tag;
     if (preventDeletion != null) data['preventDeletion'] = preventDeletion;
@@ -1025,7 +1251,23 @@ class FindModelsByNameResponseItem {
   final bool? latexsvg;
   final List<List<int>>? req;
   final int? originalStockKind;
-  FindModelsByNameResponseItem({this.id, this.name, this.type, this.mod, this.usn, this.sortf, this.did, this.tmpls, this.flds, this.css, this.latexPre, this.latexPost, this.latexsvg, this.req, this.originalStockKind});
+  FindModelsByNameResponseItem({
+    this.id,
+    this.name,
+    this.type,
+    this.mod,
+    this.usn,
+    this.sortf,
+    this.did,
+    this.tmpls,
+    this.flds,
+    this.css,
+    this.latexPre,
+    this.latexPost,
+    this.latexsvg,
+    this.req,
+    this.originalStockKind,
+  });
   factory FindModelsByNameResponseItem.fromJson(Map<String, dynamic> json) {
     return FindModelsByNameResponseItem(
       id: json['id'],
@@ -1035,8 +1277,16 @@ class FindModelsByNameResponseItem {
       usn: json['usn'],
       sortf: json['sortf'],
       did: json['did'],
-      tmpls: json['tmpls'] != null ? (json['tmpls'] as List).map((i) => FindModelsByNameResponseItemTmplsItem.fromJson(i)).toList() : null,
-      flds: json['flds'] != null ? (json['flds'] as List).map((i) => FindModelsByNameResponseItemFldsItem.fromJson(i)).toList() : null,
+      tmpls: json['tmpls'] != null
+          ? (json['tmpls'] as List)
+                .map((i) => FindModelsByNameResponseItemTmplsItem.fromJson(i))
+                .toList()
+          : null,
+      flds: json['flds'] != null
+          ? (json['flds'] as List)
+                .map((i) => FindModelsByNameResponseItemFldsItem.fromJson(i))
+                .toList()
+          : null,
       css: json['css'],
       latexPre: json['latexPre'],
       latexPost: json['latexPost'],
@@ -1061,7 +1311,8 @@ class FindModelsByNameResponseItem {
     if (latexPost != null) data['latexPost'] = latexPost;
     if (latexsvg != null) data['latexsvg'] = latexsvg;
     if (req != null) data['req'] = req;
-    if (originalStockKind != null) data['originalStockKind'] = originalStockKind;
+    if (originalStockKind != null)
+      data['originalStockKind'] = originalStockKind;
     return data;
   }
 }
@@ -1071,10 +1322,7 @@ class ModelFieldFontsResponseFront {
   final int? size;
   ModelFieldFontsResponseFront({this.font, this.size});
   factory ModelFieldFontsResponseFront.fromJson(Map<String, dynamic> json) {
-    return ModelFieldFontsResponseFront(
-      font: json['font'],
-      size: json['size'],
-    );
+    return ModelFieldFontsResponseFront(font: json['font'], size: json['size']);
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -1089,10 +1337,7 @@ class ModelFieldFontsResponseBack {
   final int? size;
   ModelFieldFontsResponseBack({this.font, this.size});
   factory ModelFieldFontsResponseBack.fromJson(Map<String, dynamic> json) {
-    return ModelFieldFontsResponseBack(
-      font: json['font'],
-      size: json['size'],
-    );
+    return ModelFieldFontsResponseBack(font: json['font'], size: json['size']);
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -1108,8 +1353,12 @@ class ModelFieldFontsResponse {
   ModelFieldFontsResponse({this.Front, this.Back});
   factory ModelFieldFontsResponse.fromJson(Map<String, dynamic> json) {
     return ModelFieldFontsResponse(
-      Front: json['Front'] != null ? ModelFieldFontsResponseFront.fromJson(json['Front']) : null,
-      Back: json['Back'] != null ? ModelFieldFontsResponseBack.fromJson(json['Back']) : null,
+      Front: json['Front'] != null
+          ? ModelFieldFontsResponseFront.fromJson(json['Front'])
+          : null,
+      Back: json['Back'] != null
+          ? ModelFieldFontsResponseBack.fromJson(json['Back'])
+          : null,
     );
   }
   Map<String, dynamic> toJson() {
@@ -1121,12 +1370,9 @@ class ModelFieldFontsResponse {
 }
 
 class ModelFieldsOnTemplatesResponse {
-
   ModelFieldsOnTemplatesResponse();
   factory ModelFieldsOnTemplatesResponse.fromJson(Map<String, dynamic> json) {
-    return ModelFieldsOnTemplatesResponse(
-
-    );
+    return ModelFieldsOnTemplatesResponse();
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -1164,7 +1410,15 @@ class CreateModelResponseFldsItem {
   final String? font;
   final int? size;
   final List<dynamic>? media;
-  CreateModelResponseFldsItem({this.name, this.ord, this.sticky, this.rtl, this.font, this.size, this.media});
+  CreateModelResponseFldsItem({
+    this.name,
+    this.ord,
+    this.sticky,
+    this.rtl,
+    this.font,
+    this.size,
+    this.media,
+  });
   factory CreateModelResponseFldsItem.fromJson(Map<String, dynamic> json) {
     return CreateModelResponseFldsItem(
       name: json['name'],
@@ -1197,7 +1451,15 @@ class CreateModelResponseTmplsItem {
   final dynamic? did;
   final String? bqfmt;
   final String? bafmt;
-  CreateModelResponseTmplsItem({this.name, this.ord, this.qfmt, this.afmt, this.did, this.bqfmt, this.bafmt});
+  CreateModelResponseTmplsItem({
+    this.name,
+    this.ord,
+    this.qfmt,
+    this.afmt,
+    this.did,
+    this.bqfmt,
+    this.bafmt,
+  });
   factory CreateModelResponseTmplsItem.fromJson(Map<String, dynamic> json) {
     return CreateModelResponseTmplsItem(
       name: json['name'],
@@ -1238,7 +1500,23 @@ class CreateModelResponse {
   final List<dynamic>? tags;
   final int? id;
   final List<List<int>>? req;
-  CreateModelResponse({this.sortf, this.did, this.latexPre, this.latexPost, this.mod, this.usn, this.vers, this.type, this.css, this.name, this.flds, this.tmpls, this.tags, this.id, this.req});
+  CreateModelResponse({
+    this.sortf,
+    this.did,
+    this.latexPre,
+    this.latexPost,
+    this.mod,
+    this.usn,
+    this.vers,
+    this.type,
+    this.css,
+    this.name,
+    this.flds,
+    this.tmpls,
+    this.tags,
+    this.id,
+    this.req,
+  });
   factory CreateModelResponse.fromJson(Map<String, dynamic> json) {
     return CreateModelResponse(
       sortf: json['sortf'],
@@ -1251,8 +1529,16 @@ class CreateModelResponse {
       type: json['type'],
       css: json['css'],
       name: json['name'],
-      flds: json['flds'] != null ? (json['flds'] as List).map((i) => CreateModelResponseFldsItem.fromJson(i)).toList() : null,
-      tmpls: json['tmpls'] != null ? (json['tmpls'] as List).map((i) => CreateModelResponseTmplsItem.fromJson(i)).toList() : null,
+      flds: json['flds'] != null
+          ? (json['flds'] as List)
+                .map((i) => CreateModelResponseFldsItem.fromJson(i))
+                .toList()
+          : null,
+      tmpls: json['tmpls'] != null
+          ? (json['tmpls'] as List)
+                .map((i) => CreateModelResponseTmplsItem.fromJson(i))
+                .toList()
+          : null,
       tags: json['tags'] != null ? List<dynamic>.from(json['tags']) : null,
       id: json['id'],
       req: json['req'] != null ? List<List<int>>.from(json['req']) : null,
@@ -1316,12 +1602,9 @@ class ModelTemplatesResponseCard2 {
 }
 
 class ModelTemplatesResponse {
-
   ModelTemplatesResponse();
   factory ModelTemplatesResponse.fromJson(Map<String, dynamic> json) {
-    return ModelTemplatesResponse(
-
-    );
+    return ModelTemplatesResponse();
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -1334,9 +1617,7 @@ class ModelStylingResponse {
   final String? css;
   ModelStylingResponse({this.css});
   factory ModelStylingResponse.fromJson(Map<String, dynamic> json) {
-    return ModelStylingResponse(
-      css: json['css'],
-    );
+    return ModelStylingResponse(css: json['css']);
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -1349,7 +1630,9 @@ class UpdateModelTemplatesModelTemplatesCard1 {
   final String? Front;
   final String? Back;
   UpdateModelTemplatesModelTemplatesCard1({this.Front, this.Back});
-  factory UpdateModelTemplatesModelTemplatesCard1.fromJson(Map<String, dynamic> json) {
+  factory UpdateModelTemplatesModelTemplatesCard1.fromJson(
+    Map<String, dynamic> json,
+  ) {
     return UpdateModelTemplatesModelTemplatesCard1(
       Front: json['Front'],
       Back: json['Back'],
@@ -1364,12 +1647,11 @@ class UpdateModelTemplatesModelTemplatesCard1 {
 }
 
 class UpdateModelTemplatesModelTemplates {
-
   UpdateModelTemplatesModelTemplates();
-  factory UpdateModelTemplatesModelTemplates.fromJson(Map<String, dynamic> json) {
-    return UpdateModelTemplatesModelTemplates(
-
-    );
+  factory UpdateModelTemplatesModelTemplates.fromJson(
+    Map<String, dynamic> json,
+  ) {
+    return UpdateModelTemplatesModelTemplates();
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -1385,7 +1667,9 @@ class UpdateModelTemplatesModel {
   factory UpdateModelTemplatesModel.fromJson(Map<String, dynamic> json) {
     return UpdateModelTemplatesModel(
       name: json['name'],
-      templates: json['templates'] != null ? UpdateModelTemplatesModelTemplates.fromJson(json['templates']) : null,
+      templates: json['templates'] != null
+          ? UpdateModelTemplatesModelTemplates.fromJson(json['templates'])
+          : null,
     );
   }
   Map<String, dynamic> toJson() {
@@ -1401,10 +1685,7 @@ class UpdateModelStylingModel {
   final String? css;
   UpdateModelStylingModel({this.name, this.css});
   factory UpdateModelStylingModel.fromJson(Map<String, dynamic> json) {
-    return UpdateModelStylingModel(
-      name: json['name'],
-      css: json['css'],
-    );
+    return UpdateModelStylingModel(name: json['name'], css: json['css']);
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -1421,7 +1702,14 @@ class FindAndReplaceInModelsModel {
   final bool? front;
   final bool? back;
   final bool? css;
-  FindAndReplaceInModelsModel({this.modelName, this.findText, this.replaceText, this.front, this.back, this.css});
+  FindAndReplaceInModelsModel({
+    this.modelName,
+    this.findText,
+    this.replaceText,
+    this.front,
+    this.back,
+    this.css,
+  });
   factory FindAndReplaceInModelsModel.fromJson(Map<String, dynamic> json) {
     return FindAndReplaceInModelsModel(
       modelName: json['modelName'],
@@ -1470,10 +1758,7 @@ class AddNotesNotesItemFields {
   final String? Back;
   AddNotesNotesItemFields({this.Front, this.Back});
   factory AddNotesNotesItemFields.fromJson(Map<String, dynamic> json) {
-    return AddNotesNotesItemFields(
-      Front: json['Front'],
-      Back: json['Back'],
-    );
+    return AddNotesNotesItemFields(Front: json['Front'], Back: json['Back']);
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -1492,7 +1777,9 @@ class AddNotesNotesItem {
     return AddNotesNotesItem(
       deckName: json['deckName'],
       modelName: json['modelName'],
-      fields: json['fields'] != null ? AddNotesNotesItemFields.fromJson(json['fields']) : null,
+      fields: json['fields'] != null
+          ? AddNotesNotesItemFields.fromJson(json['fields'])
+          : null,
     );
   }
   Map<String, dynamic> toJson() {
@@ -1509,10 +1796,7 @@ class CanAddNotesNotesItemFields {
   final String? Back;
   CanAddNotesNotesItemFields({this.Front, this.Back});
   factory CanAddNotesNotesItemFields.fromJson(Map<String, dynamic> json) {
-    return CanAddNotesNotesItemFields(
-      Front: json['Front'],
-      Back: json['Back'],
-    );
+    return CanAddNotesNotesItemFields(Front: json['Front'], Back: json['Back']);
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -1532,7 +1816,9 @@ class CanAddNotesNotesItem {
     return CanAddNotesNotesItem(
       deckName: json['deckName'],
       modelName: json['modelName'],
-      fields: json['fields'] != null ? CanAddNotesNotesItemFields.fromJson(json['fields']) : null,
+      fields: json['fields'] != null
+          ? CanAddNotesNotesItemFields.fromJson(json['fields'])
+          : null,
       tags: json['tags'] != null ? List<String>.from(json['tags']) : null,
     );
   }
@@ -1550,7 +1836,9 @@ class CanAddNotesWithErrorDetailNotesItemFields {
   final String? Front;
   final String? Back;
   CanAddNotesWithErrorDetailNotesItemFields({this.Front, this.Back});
-  factory CanAddNotesWithErrorDetailNotesItemFields.fromJson(Map<String, dynamic> json) {
+  factory CanAddNotesWithErrorDetailNotesItemFields.fromJson(
+    Map<String, dynamic> json,
+  ) {
     return CanAddNotesWithErrorDetailNotesItemFields(
       Front: json['Front'],
       Back: json['Back'],
@@ -1569,12 +1857,21 @@ class CanAddNotesWithErrorDetailNotesItem {
   final String? modelName;
   final CanAddNotesWithErrorDetailNotesItemFields? fields;
   final List<String>? tags;
-  CanAddNotesWithErrorDetailNotesItem({this.deckName, this.modelName, this.fields, this.tags});
-  factory CanAddNotesWithErrorDetailNotesItem.fromJson(Map<String, dynamic> json) {
+  CanAddNotesWithErrorDetailNotesItem({
+    this.deckName,
+    this.modelName,
+    this.fields,
+    this.tags,
+  });
+  factory CanAddNotesWithErrorDetailNotesItem.fromJson(
+    Map<String, dynamic> json,
+  ) {
     return CanAddNotesWithErrorDetailNotesItem(
       deckName: json['deckName'],
       modelName: json['modelName'],
-      fields: json['fields'] != null ? CanAddNotesWithErrorDetailNotesItemFields.fromJson(json['fields']) : null,
+      fields: json['fields'] != null
+          ? CanAddNotesWithErrorDetailNotesItemFields.fromJson(json['fields'])
+          : null,
       tags: json['tags'] != null ? List<String>.from(json['tags']) : null,
     );
   }
@@ -1592,7 +1889,9 @@ class CanAddNotesWithErrorDetailResponseItem {
   final bool? canAdd;
   final String? error;
   CanAddNotesWithErrorDetailResponseItem({this.canAdd, this.error});
-  factory CanAddNotesWithErrorDetailResponseItem.fromJson(Map<String, dynamic> json) {
+  factory CanAddNotesWithErrorDetailResponseItem.fromJson(
+    Map<String, dynamic> json,
+  ) {
     return CanAddNotesWithErrorDetailResponseItem(
       canAdd: json['canAdd'],
       error: json['error'],
@@ -1611,10 +1910,7 @@ class UpdateNoteFieldsNoteFields {
   final String? Back;
   UpdateNoteFieldsNoteFields({this.Front, this.Back});
   factory UpdateNoteFieldsNoteFields.fromJson(Map<String, dynamic> json) {
-    return UpdateNoteFieldsNoteFields(
-      Front: json['Front'],
-      Back: json['Back'],
-    );
+    return UpdateNoteFieldsNoteFields(Front: json['Front'], Back: json['Back']);
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -1629,7 +1925,12 @@ class UpdateNoteFieldsNoteAudioItem {
   final String? filename;
   final String? skipHash;
   final List<String>? fields;
-  UpdateNoteFieldsNoteAudioItem({this.url, this.filename, this.skipHash, this.fields});
+  UpdateNoteFieldsNoteAudioItem({
+    this.url,
+    this.filename,
+    this.skipHash,
+    this.fields,
+  });
   factory UpdateNoteFieldsNoteAudioItem.fromJson(Map<String, dynamic> json) {
     return UpdateNoteFieldsNoteAudioItem(
       url: json['url'],
@@ -1656,8 +1957,14 @@ class UpdateNoteFieldsNote {
   factory UpdateNoteFieldsNote.fromJson(Map<String, dynamic> json) {
     return UpdateNoteFieldsNote(
       id: json['id'],
-      fields: json['fields'] != null ? UpdateNoteFieldsNoteFields.fromJson(json['fields']) : null,
-      audio: json['audio'] != null ? (json['audio'] as List).map((i) => UpdateNoteFieldsNoteAudioItem.fromJson(i)).toList() : null,
+      fields: json['fields'] != null
+          ? UpdateNoteFieldsNoteFields.fromJson(json['fields'])
+          : null,
+      audio: json['audio'] != null
+          ? (json['audio'] as List)
+                .map((i) => UpdateNoteFieldsNoteAudioItem.fromJson(i))
+                .toList()
+          : null,
     );
   }
   Map<String, dynamic> toJson() {
@@ -1674,10 +1981,7 @@ class UpdateNoteNoteFields {
   final String? Back;
   UpdateNoteNoteFields({this.Front, this.Back});
   factory UpdateNoteNoteFields.fromJson(Map<String, dynamic> json) {
-    return UpdateNoteNoteFields(
-      Front: json['Front'],
-      Back: json['Back'],
-    );
+    return UpdateNoteNoteFields(Front: json['Front'], Back: json['Back']);
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -1695,7 +1999,9 @@ class UpdateNoteNote {
   factory UpdateNoteNote.fromJson(Map<String, dynamic> json) {
     return UpdateNoteNote(
       id: json['id'],
-      fields: json['fields'] != null ? UpdateNoteNoteFields.fromJson(json['fields']) : null,
+      fields: json['fields'] != null
+          ? UpdateNoteNoteFields.fromJson(json['fields'])
+          : null,
       tags: json['tags'] != null ? List<String>.from(json['tags']) : null,
     );
   }
@@ -1739,7 +2045,9 @@ class UpdateNoteModelNote {
     return UpdateNoteModelNote(
       id: json['id'],
       modelName: json['modelName'],
-      fields: json['fields'] != null ? UpdateNoteModelNoteFields.fromJson(json['fields']) : null,
+      fields: json['fields'] != null
+          ? UpdateNoteModelNoteFields.fromJson(json['fields'])
+          : null,
       tags: json['tags'] != null ? List<String>.from(json['tags']) : null,
     );
   }
@@ -1795,8 +2103,12 @@ class NotesInfoResponseItemFields {
   NotesInfoResponseItemFields({this.Front, this.Back});
   factory NotesInfoResponseItemFields.fromJson(Map<String, dynamic> json) {
     return NotesInfoResponseItemFields(
-      Front: json['Front'] != null ? NotesInfoResponseItemFieldsFront.fromJson(json['Front']) : null,
-      Back: json['Back'] != null ? NotesInfoResponseItemFieldsBack.fromJson(json['Back']) : null,
+      Front: json['Front'] != null
+          ? NotesInfoResponseItemFieldsFront.fromJson(json['Front'])
+          : null,
+      Back: json['Back'] != null
+          ? NotesInfoResponseItemFieldsBack.fromJson(json['Back'])
+          : null,
     );
   }
   Map<String, dynamic> toJson() {
@@ -1815,14 +2127,24 @@ class NotesInfoResponseItem {
   final NotesInfoResponseItemFields? fields;
   final int? mod;
   final List<int>? cards;
-  NotesInfoResponseItem({this.noteId, this.profile, this.modelName, this.tags, this.fields, this.mod, this.cards});
+  NotesInfoResponseItem({
+    this.noteId,
+    this.profile,
+    this.modelName,
+    this.tags,
+    this.fields,
+    this.mod,
+    this.cards,
+  });
   factory NotesInfoResponseItem.fromJson(Map<String, dynamic> json) {
     return NotesInfoResponseItem(
       noteId: json['noteId'],
       profile: json['profile'],
       modelName: json['modelName'],
       tags: json['tags'] != null ? List<String>.from(json['tags']) : null,
-      fields: json['fields'] != null ? NotesInfoResponseItemFields.fromJson(json['fields']) : null,
+      fields: json['fields'] != null
+          ? NotesInfoResponseItemFields.fromJson(json['fields'])
+          : null,
       mod: json['mod'],
       cards: json['cards'] != null ? List<int>.from(json['cards']) : null,
     );
@@ -1845,10 +2167,7 @@ class NotesModTimeResponseItem {
   final int? mod;
   NotesModTimeResponseItem({this.noteId, this.mod});
   factory NotesModTimeResponseItem.fromJson(Map<String, dynamic> json) {
-    return NotesModTimeResponseItem(
-      noteId: json['noteId'],
-      mod: json['mod'],
-    );
+    return NotesModTimeResponseItem(noteId: json['noteId'], mod: json['mod']);
   }
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -1878,15 +2197,19 @@ class AnkiConnect {
   Future<dynamic> invoke(String action, [Map<String, dynamic>? params]) async {
     final request = await HttpClient().postUrl(Uri.parse(url));
     request.headers.set('content-type', 'application/json');
-    request.add(utf8.encode(json.encode({
-      'action': action,
-      'version': apiVersion,
-      'params': _toJson(params ?? {}),
-    })));
+    request.add(
+      utf8.encode(
+        json.encode({
+          'action': action,
+          'version': apiVersion,
+          'params': _toJson(params ?? {}),
+        }),
+      ),
+    );
     final response = await request.close();
     final responseBody = await response.transform(utf8.decoder).join();
     final data = json.decode(responseBody);
-    
+
     if (data['error'] != null) {
       throw Exception(data['error']);
     }
@@ -1894,98 +2217,114 @@ class AnkiConnect {
   }
 
   Future<List<int>> getEaseFactors(List<int> cards) async {
-    var res = await invoke('getEaseFactors', { 'cards': cards });
+    var res = await invoke('getEaseFactors', {'cards': cards});
     if (res == null) return [];
     return List<int>.from(res);
   }
 
-  Future<List<bool>> setEaseFactors(List<int> cards, List<int> easeFactors) async {
-    var res = await invoke('setEaseFactors', { 'cards': cards, 'easeFactors': easeFactors });
+  Future<List<bool>> setEaseFactors(
+    List<int> cards,
+    List<int> easeFactors,
+  ) async {
+    var res = await invoke('setEaseFactors', {
+      'cards': cards,
+      'easeFactors': easeFactors,
+    });
     if (res == null) return [];
     return List<bool>.from(res);
   }
 
-  Future<List<bool>> setSpecificValueOfCard(int card, List<String> keys, List<String> newValues) async {
-    var res = await invoke('setSpecificValueOfCard', { 'card': card, 'keys': keys, 'newValues': newValues });
+  Future<List<bool>> setSpecificValueOfCard(
+    int card,
+    List<String> keys,
+    List<String> newValues,
+  ) async {
+    var res = await invoke('setSpecificValueOfCard', {
+      'card': card,
+      'keys': keys,
+      'newValues': newValues,
+    });
     if (res == null) return [];
     return List<bool>.from(res);
   }
 
   Future<bool> suspend(List<int> cards) async {
-    var res = await invoke('suspend', { 'cards': cards });
+    var res = await invoke('suspend', {'cards': cards});
     return res;
   }
 
   Future<bool> unsuspend(List<int> cards) async {
-    var res = await invoke('unsuspend', { 'cards': cards });
+    var res = await invoke('unsuspend', {'cards': cards});
     return res;
   }
 
   Future<bool> suspended(int card) async {
-    var res = await invoke('suspended', { 'card': card });
+    var res = await invoke('suspended', {'card': card});
     return res;
   }
 
   Future<List<bool>> areSuspended(List<int> cards) async {
-    var res = await invoke('areSuspended', { 'cards': cards });
+    var res = await invoke('areSuspended', {'cards': cards});
     if (res == null) return [];
     return List<bool>.from(res);
   }
 
   Future<List<bool>> areDue(List<int> cards) async {
-    var res = await invoke('areDue', { 'cards': cards });
+    var res = await invoke('areDue', {'cards': cards});
     if (res == null) return [];
     return List<bool>.from(res);
   }
 
   Future<List<int>> getIntervals(List<int> cards) async {
-    var res = await invoke('getIntervals', { 'cards': cards });
+    var res = await invoke('getIntervals', {'cards': cards});
     if (res == null) return [];
     return List<int>.from(res);
   }
 
   Future<List<int>> findCards(String query) async {
-    var res = await invoke('findCards', { 'query': query });
+    var res = await invoke('findCards', {'query': query});
     if (res == null) return [];
     return List<int>.from(res);
   }
 
   Future<List<int>> cardsToNotes(List<int> cards) async {
-    var res = await invoke('cardsToNotes', { 'cards': cards });
+    var res = await invoke('cardsToNotes', {'cards': cards});
     if (res == null) return [];
     return List<int>.from(res);
   }
 
   Future<List<CardsModTimeResponseItem>> cardsModTime(List<int> cards) async {
-    var res = await invoke('cardsModTime', { 'cards': cards });
+    var res = await invoke('cardsModTime', {'cards': cards});
     if (res == null) return [];
-    return (res as List).map((i) => CardsModTimeResponseItem.fromJson(i)).toList();
+    return (res as List)
+        .map((i) => CardsModTimeResponseItem.fromJson(i))
+        .toList();
   }
 
   Future<List<CardsInfoResponseItem>> cardsInfo(List<int> cards) async {
-    var res = await invoke('cardsInfo', { 'cards': cards });
+    var res = await invoke('cardsInfo', {'cards': cards});
     if (res == null) return [];
     return (res as List).map((i) => CardsInfoResponseItem.fromJson(i)).toList();
   }
 
   Future<dynamic> forgetCards(List<int> cards) async {
-    var res = await invoke('forgetCards', { 'cards': cards });
+    var res = await invoke('forgetCards', {'cards': cards});
     return res;
   }
 
   Future<dynamic> relearnCards(List<int> cards) async {
-    var res = await invoke('relearnCards', { 'cards': cards });
+    var res = await invoke('relearnCards', {'cards': cards});
     return res;
   }
 
   Future<List<bool>> answerCards(List<AnswerCardsAnswersItem> answers) async {
-    var res = await invoke('answerCards', { 'answers': answers });
+    var res = await invoke('answerCards', {'answers': answers});
     if (res == null) return [];
     return List<bool>.from(res);
   }
 
   Future<bool> setDueDate(List<int> cards, String days) async {
-    var res = await invoke('setDueDate', { 'cards': cards, 'days': days });
+    var res = await invoke('setDueDate', {'cards': cards, 'days': days});
     return res;
   }
 
@@ -2001,63 +2340,78 @@ class AnkiConnect {
   }
 
   Future<GetDecksResponse> getDecks(List<int> cards) async {
-    var res = await invoke('getDecks', { 'cards': cards });
+    var res = await invoke('getDecks', {'cards': cards});
     return GetDecksResponse.fromJson(res);
   }
 
   Future<int> createDeck(String deck) async {
-    var res = await invoke('createDeck', { 'deck': deck });
+    var res = await invoke('createDeck', {'deck': deck});
     return res;
   }
 
   Future<dynamic> changeDeck(List<int> cards, String deck) async {
-    var res = await invoke('changeDeck', { 'cards': cards, 'deck': deck });
+    var res = await invoke('changeDeck', {'cards': cards, 'deck': deck});
     return res;
   }
 
   Future<dynamic> deleteDecks(List<String> decks, bool cardsToo) async {
-    var res = await invoke('deleteDecks', { 'decks': decks, 'cardsToo': cardsToo });
+    var res = await invoke('deleteDecks', {
+      'decks': decks,
+      'cardsToo': cardsToo,
+    });
     return res;
   }
 
   Future<GetDeckConfigResponse> getDeckConfig(String deck) async {
-    var res = await invoke('getDeckConfig', { 'deck': deck });
+    var res = await invoke('getDeckConfig', {'deck': deck});
     return GetDeckConfigResponse.fromJson(res);
   }
 
   Future<bool> saveDeckConfig(SaveDeckConfigConfig config) async {
-    var res = await invoke('saveDeckConfig', { 'config': config });
+    var res = await invoke('saveDeckConfig', {'config': config});
     return res;
   }
 
   Future<bool> setDeckConfigId(List<String> decks, int configId) async {
-    var res = await invoke('setDeckConfigId', { 'decks': decks, 'configId': configId });
+    var res = await invoke('setDeckConfigId', {
+      'decks': decks,
+      'configId': configId,
+    });
     return res;
   }
 
   Future<int> cloneDeckConfigId(String name, int cloneFrom) async {
-    var res = await invoke('cloneDeckConfigId', { 'name': name, 'cloneFrom': cloneFrom });
+    var res = await invoke('cloneDeckConfigId', {
+      'name': name,
+      'cloneFrom': cloneFrom,
+    });
     return res;
   }
 
   Future<bool> removeDeckConfigId(int configId) async {
-    var res = await invoke('removeDeckConfigId', { 'configId': configId });
+    var res = await invoke('removeDeckConfigId', {'configId': configId});
     return res;
   }
 
   Future<Map<String, dynamic>> getDeckStats(List<String> decks) async {
-    var res = await invoke('getDeckStats', { 'decks': decks });
+    var res = await invoke('getDeckStats', {'decks': decks});
     return res;
   }
 
-  Future<List<int>> guiBrowse(String query, GuiBrowseReordercards reorderCards) async {
-    var res = await invoke('guiBrowse', { 'query': query, 'reorderCards': reorderCards });
+  Future<List<int>> guiBrowse(
+    String query,
+    GuiBrowseReordercards reorderCards,
+  ) async {
+    var res = await invoke('guiBrowse', {
+      'query': query,
+      'reorderCards': reorderCards,
+    });
     if (res == null) return [];
     return List<int>.from(res);
   }
 
   Future<bool> guiSelectCard(int card) async {
-    var res = await invoke('guiSelectCard', { 'card': card });
+    var res = await invoke('guiSelectCard', {'card': card});
     return res;
   }
 
@@ -2068,17 +2422,17 @@ class AnkiConnect {
   }
 
   Future<int> guiAddCards(GuiAddCardsNote note) async {
-    var res = await invoke('guiAddCards', { 'note': note });
+    var res = await invoke('guiAddCards', {'note': note});
     return res;
   }
 
   Future<dynamic> guiEditNote(int note) async {
-    var res = await invoke('guiEditNote', { 'note': note });
+    var res = await invoke('guiEditNote', {'note': note});
     return res;
   }
 
   Future<bool> guiAddNoteSetData(GuiAddNoteSetDataNote note) async {
-    var res = await invoke('guiAddNoteSetData', { 'note': note });
+    var res = await invoke('guiAddNoteSetData', {'note': note});
     return res;
   }
 
@@ -2103,7 +2457,7 @@ class AnkiConnect {
   }
 
   Future<bool> guiAnswerCard(int ease) async {
-    var res = await invoke('guiAnswerCard', { 'ease': ease });
+    var res = await invoke('guiAnswerCard', {'ease': ease});
     return res;
   }
 
@@ -2113,7 +2467,7 @@ class AnkiConnect {
   }
 
   Future<bool> guiDeckOverview(String name) async {
-    var res = await invoke('guiDeckOverview', { 'name': name });
+    var res = await invoke('guiDeckOverview', {'name': name});
     return res;
   }
 
@@ -2123,12 +2477,12 @@ class AnkiConnect {
   }
 
   Future<bool> guiDeckReview(String name) async {
-    var res = await invoke('guiDeckReview', { 'name': name });
+    var res = await invoke('guiDeckReview', {'name': name});
     return res;
   }
 
   Future<dynamic> guiImportFile(String path) async {
-    var res = await invoke('guiImportFile', { 'path': path });
+    var res = await invoke('guiImportFile', {'path': path});
     return res;
   }
 
@@ -2148,17 +2502,20 @@ class AnkiConnect {
   }
 
   Future<String> storeMediaFile(String filename, String data) async {
-    var res = await invoke('storeMediaFile', { 'filename': filename, 'data': data });
+    var res = await invoke('storeMediaFile', {
+      'filename': filename,
+      'data': data,
+    });
     return res;
   }
 
   Future<String> retrieveMediaFile(String filename) async {
-    var res = await invoke('retrieveMediaFile', { 'filename': filename });
+    var res = await invoke('retrieveMediaFile', {'filename': filename});
     return res;
   }
 
   Future<List<String>> getMediaFilesNames(String pattern) async {
-    var res = await invoke('getMediaFilesNames', { 'pattern': pattern });
+    var res = await invoke('getMediaFilesNames', {'pattern': pattern});
     if (res == null) return [];
     return List<String>.from(res);
   }
@@ -2169,7 +2526,7 @@ class AnkiConnect {
   }
 
   Future<dynamic> deleteMediaFile(String filename) async {
-    var res = await invoke('deleteMediaFile', { 'filename': filename });
+    var res = await invoke('deleteMediaFile', {'filename': filename});
     return res;
   }
 
@@ -2183,8 +2540,14 @@ class AnkiConnect {
     return res;
   }
 
-  Future<ApiReflectResponse> apiReflect(List<String> scopes, List<String> actions) async {
-    var res = await invoke('apiReflect', { 'scopes': scopes, 'actions': actions });
+  Future<ApiReflectResponse> apiReflect(
+    List<String> scopes,
+    List<String> actions,
+  ) async {
+    var res = await invoke('apiReflect', {
+      'scopes': scopes,
+      'actions': actions,
+    });
     return ApiReflectResponse.fromJson(res);
   }
 
@@ -2205,23 +2568,31 @@ class AnkiConnect {
   }
 
   Future<bool> loadProfile(String name) async {
-    var res = await invoke('loadProfile', { 'name': name });
+    var res = await invoke('loadProfile', {'name': name});
     return res;
   }
 
   Future<List<List<String>>> multi(List<MultiActionsItem> actions) async {
-    var res = await invoke('multi', { 'actions': actions });
+    var res = await invoke('multi', {'actions': actions});
     if (res == null) return [];
     return List<List<String>>.from(res);
   }
 
-  Future<bool> exportPackage(String deck, String path, bool includeSched) async {
-    var res = await invoke('exportPackage', { 'deck': deck, 'path': path, 'includeSched': includeSched });
+  Future<bool> exportPackage(
+    String deck,
+    String path,
+    bool includeSched,
+  ) async {
+    var res = await invoke('exportPackage', {
+      'deck': deck,
+      'path': path,
+      'includeSched': includeSched,
+    });
     return res;
   }
 
   Future<bool> importPackage(String path) async {
-    var res = await invoke('importPackage', { 'path': path });
+    var res = await invoke('importPackage', {'path': path});
     return res;
   }
 
@@ -2241,122 +2612,223 @@ class AnkiConnect {
     return ModelNamesAndIdsResponse.fromJson(res);
   }
 
-  Future<List<FindModelsByIdResponseItem>> findModelsById(List<int> modelIds) async {
-    var res = await invoke('findModelsById', { 'modelIds': modelIds });
+  Future<List<FindModelsByIdResponseItem>> findModelsById(
+    List<int> modelIds,
+  ) async {
+    var res = await invoke('findModelsById', {'modelIds': modelIds});
     if (res == null) return [];
-    return (res as List).map((i) => FindModelsByIdResponseItem.fromJson(i)).toList();
+    return (res as List)
+        .map((i) => FindModelsByIdResponseItem.fromJson(i))
+        .toList();
   }
 
-  Future<List<FindModelsByNameResponseItem>> findModelsByName(List<String> modelNames) async {
-    var res = await invoke('findModelsByName', { 'modelNames': modelNames });
+  Future<List<FindModelsByNameResponseItem>> findModelsByName(
+    List<String> modelNames,
+  ) async {
+    var res = await invoke('findModelsByName', {'modelNames': modelNames});
     if (res == null) return [];
-    return (res as List).map((i) => FindModelsByNameResponseItem.fromJson(i)).toList();
+    return (res as List)
+        .map((i) => FindModelsByNameResponseItem.fromJson(i))
+        .toList();
   }
 
   Future<List<String>> modelFieldNames(String modelName) async {
-    var res = await invoke('modelFieldNames', { 'modelName': modelName });
+    var res = await invoke('modelFieldNames', {'modelName': modelName});
     if (res == null) return [];
     return List<String>.from(res);
   }
 
   Future<List<String>> modelFieldDescriptions(String modelName) async {
-    var res = await invoke('modelFieldDescriptions', { 'modelName': modelName });
+    var res = await invoke('modelFieldDescriptions', {'modelName': modelName});
     if (res == null) return [];
     return List<String>.from(res);
   }
 
   Future<ModelFieldFontsResponse> modelFieldFonts(String modelName) async {
-    var res = await invoke('modelFieldFonts', { 'modelName': modelName });
+    var res = await invoke('modelFieldFonts', {'modelName': modelName});
     return ModelFieldFontsResponse.fromJson(res);
   }
 
-  Future<ModelFieldsOnTemplatesResponse> modelFieldsOnTemplates(String modelName) async {
-    var res = await invoke('modelFieldsOnTemplates', { 'modelName': modelName });
+  Future<ModelFieldsOnTemplatesResponse> modelFieldsOnTemplates(
+    String modelName,
+  ) async {
+    var res = await invoke('modelFieldsOnTemplates', {'modelName': modelName});
     return ModelFieldsOnTemplatesResponse.fromJson(res);
   }
 
-  Future<CreateModelResponse> createModel(String modelName, List<String> inOrderFields, String css, bool isCloze, List<CreateModelCardtemplatesItem> cardTemplates) async {
-    var res = await invoke('createModel', { 'modelName': modelName, 'inOrderFields': inOrderFields, 'css': css, 'isCloze': isCloze, 'cardTemplates': cardTemplates });
+  Future<CreateModelResponse> createModel(
+    String modelName,
+    List<String> inOrderFields,
+    String css,
+    bool isCloze,
+    List<CreateModelCardtemplatesItem> cardTemplates,
+  ) async {
+    var res = await invoke('createModel', {
+      'modelName': modelName,
+      'inOrderFields': inOrderFields,
+      'css': css,
+      'isCloze': isCloze,
+      'cardTemplates': cardTemplates,
+    });
     return CreateModelResponse.fromJson(res);
   }
 
   Future<ModelTemplatesResponse> modelTemplates(String modelName) async {
-    var res = await invoke('modelTemplates', { 'modelName': modelName });
+    var res = await invoke('modelTemplates', {'modelName': modelName});
     return ModelTemplatesResponse.fromJson(res);
   }
 
   Future<ModelStylingResponse> modelStyling(String modelName) async {
-    var res = await invoke('modelStyling', { 'modelName': modelName });
+    var res = await invoke('modelStyling', {'modelName': modelName});
     return ModelStylingResponse.fromJson(res);
   }
 
   Future<dynamic> updateModelTemplates(UpdateModelTemplatesModel model) async {
-    var res = await invoke('updateModelTemplates', { 'model': model });
+    var res = await invoke('updateModelTemplates', {'model': model});
     return res;
   }
 
   Future<dynamic> updateModelStyling(UpdateModelStylingModel model) async {
-    var res = await invoke('updateModelStyling', { 'model': model });
+    var res = await invoke('updateModelStyling', {'model': model});
     return res;
   }
 
   Future<int> findAndReplaceInModels(FindAndReplaceInModelsModel model) async {
-    var res = await invoke('findAndReplaceInModels', { 'model': model });
+    var res = await invoke('findAndReplaceInModels', {'model': model});
     return res;
   }
 
-  Future<dynamic> modelTemplateRename(String modelName, String oldTemplateName, String newTemplateName) async {
-    var res = await invoke('modelTemplateRename', { 'modelName': modelName, 'oldTemplateName': oldTemplateName, 'newTemplateName': newTemplateName });
+  Future<dynamic> modelTemplateRename(
+    String modelName,
+    String oldTemplateName,
+    String newTemplateName,
+  ) async {
+    var res = await invoke('modelTemplateRename', {
+      'modelName': modelName,
+      'oldTemplateName': oldTemplateName,
+      'newTemplateName': newTemplateName,
+    });
     return res;
   }
 
-  Future<dynamic> modelTemplateReposition(String modelName, String templateName, int index) async {
-    var res = await invoke('modelTemplateReposition', { 'modelName': modelName, 'templateName': templateName, 'index': index });
+  Future<dynamic> modelTemplateReposition(
+    String modelName,
+    String templateName,
+    int index,
+  ) async {
+    var res = await invoke('modelTemplateReposition', {
+      'modelName': modelName,
+      'templateName': templateName,
+      'index': index,
+    });
     return res;
   }
 
-  Future<dynamic> modelTemplateAdd(String modelName, ModelTemplateAddTemplate template) async {
-    var res = await invoke('modelTemplateAdd', { 'modelName': modelName, 'template': template });
+  Future<dynamic> modelTemplateAdd(
+    String modelName,
+    ModelTemplateAddTemplate template,
+  ) async {
+    var res = await invoke('modelTemplateAdd', {
+      'modelName': modelName,
+      'template': template,
+    });
     return res;
   }
 
-  Future<dynamic> modelTemplateRemove(String modelName, String templateName) async {
-    var res = await invoke('modelTemplateRemove', { 'modelName': modelName, 'templateName': templateName });
+  Future<dynamic> modelTemplateRemove(
+    String modelName,
+    String templateName,
+  ) async {
+    var res = await invoke('modelTemplateRemove', {
+      'modelName': modelName,
+      'templateName': templateName,
+    });
     return res;
   }
 
-  Future<dynamic> modelFieldRename(String modelName, String oldFieldName, String newFieldName) async {
-    var res = await invoke('modelFieldRename', { 'modelName': modelName, 'oldFieldName': oldFieldName, 'newFieldName': newFieldName });
+  Future<dynamic> modelFieldRename(
+    String modelName,
+    String oldFieldName,
+    String newFieldName,
+  ) async {
+    var res = await invoke('modelFieldRename', {
+      'modelName': modelName,
+      'oldFieldName': oldFieldName,
+      'newFieldName': newFieldName,
+    });
     return res;
   }
 
-  Future<dynamic> modelFieldReposition(String modelName, String fieldName, int index) async {
-    var res = await invoke('modelFieldReposition', { 'modelName': modelName, 'fieldName': fieldName, 'index': index });
+  Future<dynamic> modelFieldReposition(
+    String modelName,
+    String fieldName,
+    int index,
+  ) async {
+    var res = await invoke('modelFieldReposition', {
+      'modelName': modelName,
+      'fieldName': fieldName,
+      'index': index,
+    });
     return res;
   }
 
-  Future<dynamic> modelFieldAdd(String modelName, String fieldName, int index) async {
-    var res = await invoke('modelFieldAdd', { 'modelName': modelName, 'fieldName': fieldName, 'index': index });
+  Future<dynamic> modelFieldAdd(
+    String modelName,
+    String fieldName,
+    int index,
+  ) async {
+    var res = await invoke('modelFieldAdd', {
+      'modelName': modelName,
+      'fieldName': fieldName,
+      'index': index,
+    });
     return res;
   }
 
   Future<dynamic> modelFieldRemove(String modelName, String fieldName) async {
-    var res = await invoke('modelFieldRemove', { 'modelName': modelName, 'fieldName': fieldName });
+    var res = await invoke('modelFieldRemove', {
+      'modelName': modelName,
+      'fieldName': fieldName,
+    });
     return res;
   }
 
-  Future<dynamic> modelFieldSetFont(String modelName, String fieldName, String font) async {
-    var res = await invoke('modelFieldSetFont', { 'modelName': modelName, 'fieldName': fieldName, 'font': font });
+  Future<dynamic> modelFieldSetFont(
+    String modelName,
+    String fieldName,
+    String font,
+  ) async {
+    var res = await invoke('modelFieldSetFont', {
+      'modelName': modelName,
+      'fieldName': fieldName,
+      'font': font,
+    });
     return res;
   }
 
-  Future<dynamic> modelFieldSetFontSize(String modelName, String fieldName, int fontSize) async {
-    var res = await invoke('modelFieldSetFontSize', { 'modelName': modelName, 'fieldName': fieldName, 'fontSize': fontSize });
+  Future<dynamic> modelFieldSetFontSize(
+    String modelName,
+    String fieldName,
+    int fontSize,
+  ) async {
+    var res = await invoke('modelFieldSetFontSize', {
+      'modelName': modelName,
+      'fieldName': fieldName,
+      'fontSize': fontSize,
+    });
     return res;
   }
 
-  Future<bool> modelFieldSetDescription(String modelName, String fieldName, String description) async {
-    var res = await invoke('modelFieldSetDescription', { 'modelName': modelName, 'fieldName': fieldName, 'description': description });
+  Future<bool> modelFieldSetDescription(
+    String modelName,
+    String fieldName,
+    String description,
+  ) async {
+    var res = await invoke('modelFieldSetDescription', {
+      'modelName': modelName,
+      'fieldName': fieldName,
+      'description': description,
+    });
     return res;
   }
 
@@ -2366,55 +2838,60 @@ class AnkiConnect {
   }
 
   Future<dynamic> addNotes(List<AddNotesNotesItem> notes) async {
-    var res = await invoke('addNotes', { 'notes': notes });
+    var res = await invoke('addNotes', {'notes': notes});
     return res;
   }
 
   Future<List<bool>> canAddNotes(List<CanAddNotesNotesItem> notes) async {
-    var res = await invoke('canAddNotes', { 'notes': notes });
+    var res = await invoke('canAddNotes', {'notes': notes});
     if (res == null) return [];
     return List<bool>.from(res);
   }
 
-  Future<List<CanAddNotesWithErrorDetailResponseItem>> canAddNotesWithErrorDetail(List<CanAddNotesWithErrorDetailNotesItem> notes) async {
-    var res = await invoke('canAddNotesWithErrorDetail', { 'notes': notes });
+  Future<List<CanAddNotesWithErrorDetailResponseItem>>
+  canAddNotesWithErrorDetail(
+    List<CanAddNotesWithErrorDetailNotesItem> notes,
+  ) async {
+    var res = await invoke('canAddNotesWithErrorDetail', {'notes': notes});
     if (res == null) return [];
-    return (res as List).map((i) => CanAddNotesWithErrorDetailResponseItem.fromJson(i)).toList();
+    return (res as List)
+        .map((i) => CanAddNotesWithErrorDetailResponseItem.fromJson(i))
+        .toList();
   }
 
   Future<dynamic> updateNoteFields(UpdateNoteFieldsNote note) async {
-    var res = await invoke('updateNoteFields', { 'note': note });
+    var res = await invoke('updateNoteFields', {'note': note});
     return res;
   }
 
   Future<dynamic> updateNote(UpdateNoteNote note) async {
-    var res = await invoke('updateNote', { 'note': note });
+    var res = await invoke('updateNote', {'note': note});
     return res;
   }
 
   Future<dynamic> updateNoteModel(UpdateNoteModelNote note) async {
-    var res = await invoke('updateNoteModel', { 'note': note });
+    var res = await invoke('updateNoteModel', {'note': note});
     return res;
   }
 
   Future<dynamic> updateNoteTags(int note, List<String> tags) async {
-    var res = await invoke('updateNoteTags', { 'note': note, 'tags': tags });
+    var res = await invoke('updateNoteTags', {'note': note, 'tags': tags});
     return res;
   }
 
   Future<List<String>> getNoteTags(int note) async {
-    var res = await invoke('getNoteTags', { 'note': note });
+    var res = await invoke('getNoteTags', {'note': note});
     if (res == null) return [];
     return List<String>.from(res);
   }
 
   Future<dynamic> addTags(List<int> notes, String tags) async {
-    var res = await invoke('addTags', { 'notes': notes, 'tags': tags });
+    var res = await invoke('addTags', {'notes': notes, 'tags': tags});
     return res;
   }
 
   Future<dynamic> removeTags(List<int> notes, String tags) async {
-    var res = await invoke('removeTags', { 'notes': notes, 'tags': tags });
+    var res = await invoke('removeTags', {'notes': notes, 'tags': tags});
     return res;
   }
 
@@ -2429,36 +2906,52 @@ class AnkiConnect {
     return res;
   }
 
-  Future<dynamic> replaceTags(List<int> notes, String tag_to_replace, String replace_with_tag) async {
-    var res = await invoke('replaceTags', { 'notes': notes, 'tag_to_replace': tag_to_replace, 'replace_with_tag': replace_with_tag });
+  Future<dynamic> replaceTags(
+    List<int> notes,
+    String tag_to_replace,
+    String replace_with_tag,
+  ) async {
+    var res = await invoke('replaceTags', {
+      'notes': notes,
+      'tag_to_replace': tag_to_replace,
+      'replace_with_tag': replace_with_tag,
+    });
     return res;
   }
 
-  Future<dynamic> replaceTagsInAllNotes(String tag_to_replace, String replace_with_tag) async {
-    var res = await invoke('replaceTagsInAllNotes', { 'tag_to_replace': tag_to_replace, 'replace_with_tag': replace_with_tag });
+  Future<dynamic> replaceTagsInAllNotes(
+    String tag_to_replace,
+    String replace_with_tag,
+  ) async {
+    var res = await invoke('replaceTagsInAllNotes', {
+      'tag_to_replace': tag_to_replace,
+      'replace_with_tag': replace_with_tag,
+    });
     return res;
   }
 
   Future<List<int>> findNotes(String query) async {
-    var res = await invoke('findNotes', { 'query': query });
+    var res = await invoke('findNotes', {'query': query});
     if (res == null) return [];
     return List<int>.from(res);
   }
 
   Future<List<NotesInfoResponseItem>> notesInfo(List<int> notes) async {
-    var res = await invoke('notesInfo', { 'notes': notes });
+    var res = await invoke('notesInfo', {'notes': notes});
     if (res == null) return [];
     return (res as List).map((i) => NotesInfoResponseItem.fromJson(i)).toList();
   }
 
   Future<List<NotesModTimeResponseItem>> notesModTime(List<int> notes) async {
-    var res = await invoke('notesModTime', { 'notes': notes });
+    var res = await invoke('notesModTime', {'notes': notes});
     if (res == null) return [];
-    return (res as List).map((i) => NotesModTimeResponseItem.fromJson(i)).toList();
+    return (res as List)
+        .map((i) => NotesModTimeResponseItem.fromJson(i))
+        .toList();
   }
 
   Future<dynamic> deleteNotes(List<int> notes) async {
-    var res = await invoke('deleteNotes', { 'notes': notes });
+    var res = await invoke('deleteNotes', {'notes': notes});
     return res;
   }
 
@@ -2479,28 +2972,30 @@ class AnkiConnect {
   }
 
   Future<String> getCollectionStatsHTML(bool wholeCollection) async {
-    var res = await invoke('getCollectionStatsHTML', { 'wholeCollection': wholeCollection });
+    var res = await invoke('getCollectionStatsHTML', {
+      'wholeCollection': wholeCollection,
+    });
     return res;
   }
 
   Future<List<List<int>>> cardReviews(String deck, int startID) async {
-    var res = await invoke('cardReviews', { 'deck': deck, 'startID': startID });
+    var res = await invoke('cardReviews', {'deck': deck, 'startID': startID});
     if (res == null) return [];
     return List<List<int>>.from(res);
   }
 
   Future<Map<String, dynamic>> getReviewsOfCards(List<String> cards) async {
-    var res = await invoke('getReviewsOfCards', { 'cards': cards });
+    var res = await invoke('getReviewsOfCards', {'cards': cards});
     return res;
   }
 
   Future<int> getLatestReviewID(String deck) async {
-    var res = await invoke('getLatestReviewID', { 'deck': deck });
+    var res = await invoke('getLatestReviewID', {'deck': deck});
     return res;
   }
 
   Future<dynamic> insertReviews(List<List<int>> reviews) async {
-    var res = await invoke('insertReviews', { 'reviews': reviews });
+    var res = await invoke('insertReviews', {'reviews': reviews});
     return res;
   }
 }

@@ -254,22 +254,29 @@ for m_name, m_def in all_models.items():
     for k, v in m_def['fields'].items():
         if not re.match(r'^[a-zA-Z_$][a-zA-Z0-9_$]*$', k): continue
         d_type = get_dart_type(v)
-        fields_dart.append(f"  final {d_type}? {k};")
-        constructor_dart.append(f"this.{k}")
+        
+        # Handle Dart reserved keywords
+        safe_k = k
+        reserved = ['new', 'default', 'class', 'in', 'is', 'as', 'var', 'for', 'return']
+        if k in reserved:
+            safe_k = f"{k}_"
+            
+        fields_dart.append(f"  final {d_type}? {safe_k};")
+        constructor_dart.append(f"this.{safe_k}")
         
         if v['type'] == 'model':
-            from_json_dart.append(f"      {k}: json['{k}'] != null ? {v['name']}.fromJson(json['{k}']) : null,")
-            to_json_dart.append(f"    if ({k} != null) data['{k}'] = {k}!.toJson();")
+            from_json_dart.append(f"      {safe_k}: json['{k}'] != null ? {v['name']}.fromJson(json['{k}']) : null,")
+            to_json_dart.append(f"    if ({safe_k} != null) data['{k}'] = {safe_k}!.toJson();")
         elif v['type'] == 'array' and v['items']['type'] == 'model':
             sub = v['items']['name']
-            from_json_dart.append(f"      {k}: json['{k}'] != null ? (json['{k}'] as List).map((i) => {sub}.fromJson(i)).toList() : null,")
-            to_json_dart.append(f"    if ({k} != null) data['{k}'] = {k}!.map((i) => i.toJson()).toList();")
+            from_json_dart.append(f"      {safe_k}: json['{k}'] != null ? (json['{k}'] as List).map((i) => {sub}.fromJson(i)).toList() : null,")
+            to_json_dart.append(f"    if ({safe_k} != null) data['{k}'] = {safe_k}!.map((i) => i.toJson()).toList();")
         elif v['type'] == 'array':
-            from_json_dart.append(f"      {k}: json['{k}'] != null ? List<{get_dart_type(v['items'])}>.from(json['{k}']) : null,")
-            to_json_dart.append(f"    if ({k} != null) data['{k}'] = {k};")
+            from_json_dart.append(f"      {safe_k}: json['{k}'] != null ? List<{get_dart_type(v['items'])}>.from(json['{k}']) : null,")
+            to_json_dart.append(f"    if ({safe_k} != null) data['{k}'] = {safe_k};")
         else:
-            from_json_dart.append(f"      {k}: json['{k}'],")
-            to_json_dart.append(f"    if ({k} != null) data['{k}'] = {k};")
+            from_json_dart.append(f"      {safe_k}: json['{k}'],")
+            to_json_dart.append(f"    if ({safe_k} != null) data['{k}'] = {safe_k};")
             
     dart_cls = f"class {m_name} {{\n" + "\n".join(fields_dart) + "\n"
     if constructor_dart:
