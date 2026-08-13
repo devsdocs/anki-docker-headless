@@ -74,7 +74,7 @@ Once deployed, navigate to the domain/port mapped to `5800` (e.g., `https://anki
 2. Once authenticated, you will see the full Anki Desktop app.
 3. Click **Sync** at the top right, log into your AnkiWeb account, and click **Download from AnkiWeb** to pull your decks for the first time.
 4. **No need to install AnkiConnect!** This Docker image automatically bundles and installs a custom, enhanced fork of AnkiConnect on startup. It is pre-configured to bind to `0.0.0.0` and listens on port `8766`.
-5. *(Optional)* If you wish to secure your API with an API key, you can edit `/config/.local/share/Anki2/addons21/custom_anki_connect/config.json` manually to set an `"apiKey": "your_password"`, and then restart Anki.
+5. *(Optional)* If you wish to secure your API with an API key, you can simply add the environment variable `ANKICONNECT_APIKEY=your_secure_password` to your Coolify deployment or Docker run command. The custom fork will automatically apply it!
 6. *(Optional)* If you prefer the official AnkiConnect, you can still install it normally via the Add-ons menu using code `2055492159`. It will run safely on port `8765` alongside our custom fork.
 
 ### 2️⃣ The Custom AnkiConnect API (Port 8766)
