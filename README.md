@@ -30,10 +30,10 @@ This image is heavily optimized for deployment on [Coolify](https://coolify.io/)
 
 ### 2️⃣ Configure Networking (Domains & Ports)
 Because this container serves both a Web GUI and an API, it exposes two separate ports. You need to map two different subdomains to them.
-1. Scroll down to the **Ports Exposes** field and make sure it is exactly: `5800,8765`
+1. Scroll down to the **Ports Exposes** field and make sure it is exactly: `5800,8766`
 2. In the **Domains** field, input both of your subdomains with their respective container ports appended to them, separated by a comma. 
-   - **Syntax:** `https://ui-domain.com:5800,https://api-domain.com:8765`
-   - **Example:** `https://anki-ui.yourdomain.com:5800,https://anki-api.yourdomain.com:8765`
+   - **Syntax:** `https://ui-domain.com:5800,https://api-domain.com:8766`
+   - **Example:** `https://anki-ui.yourdomain.com:5800,https://anki-api.yourdomain.com:8766`
    
 *(Coolify's Traefik proxy will automatically read this and route traffic securely to the correct internal ports!)*
 
@@ -43,7 +43,7 @@ You must provide a password to securely lock down your Anki Web GUI.
 2. Add a new variable:
    - **Name:** `VNC_PASSWORD`
    - **Value:** `my_super_secret_password` (Choose your own password)
-*(Optional: You can also set `ANKI_VERSION=24.06.3` if you want to pin a specific Anki release instead of pulling the latest).*
+*(Optional: You can also set `ANKI_VERSION=26.08.1` if you want to pin a specific Anki release instead of pulling the latest).*
 
 ### 4️⃣ Persistent Storage (CRITICAL)
 If you do not map a volume, you will lose your entire Anki collection when the container restarts!
@@ -73,19 +73,12 @@ Once deployed, navigate to the domain/port mapped to `5800` (e.g., `https://anki
 1. You will be prompted for the `VNC_PASSWORD`.
 2. Once authenticated, you will see the full Anki Desktop app.
 3. Click **Sync** at the top right, log into your AnkiWeb account, and click **Download from AnkiWeb** to pull your decks for the first time.
-4. **Install AnkiConnect:** Go to *Tools -> Add-ons -> Get Add-ons...* and type the code `2055492159`. Click OK to install.
-5. **CRITICAL STEP - Configure AnkiConnect:** In the Add-ons window, select AnkiConnect and click **Config**. 
+4. **No need to install AnkiConnect!** This Docker image automatically bundles and installs a custom, enhanced fork of AnkiConnect on startup. It is pre-configured to bind to `0.0.0.0` and listens on port `8766`.
+5. *(Optional)* If you wish to secure your API with an API key, you can edit `/config/.local/share/Anki2/addons21/custom_anki_connect/config.json` manually to set an `"apiKey": "your_password"`, and then restart Anki.
+6. *(Optional)* If you prefer the official AnkiConnect, you can still install it normally via the Add-ons menu using code `2055492159`. It will run safely on port `8765` alongside our custom fork.
 
-> [!IMPORTANT]
-> If you do not perform this step, the API will be completely inaccessible from outside the container.
-
-You must make two changes to the JSON configuration:
-   - Change `"webBindAddress": "127.0.0.1"` to `"0.0.0.0"`
-   - Change `"apiKey": null` to `"any_secure_password_you_want"` (you will use this password to authenticate your API requests).
-6. Click OK, then restart Anki (*File -> Exit*). The container will instantly restart and your API will be online!
-
-### 2️⃣ The AnkiConnect API (Port 8765)
-You can send HTTP requests to the AnkiConnect API by targeting the domain/port mapped to `8765`. 
+### 2️⃣ The Custom AnkiConnect API (Port 8766)
+You can send HTTP requests to the AnkiConnect API by targeting the domain/port mapped to `8766`. 
 
 Because we secured it, you must include your `"key"` in the JSON payload of every request.
 
@@ -115,8 +108,8 @@ Each language subdirectory contains its own `README.md` with specific usage inst
 ---
 
 ## 🛠️ Customizing AnkiConnect
-If you need to change advanced AnkiConnect settings (like `webCorsOriginList`), you can find the generated `meta.json` inside your mapped volume at:
-`/config/.local/share/Anki2/addons21/2055492159/meta.json`
+If you need to change advanced AnkiConnect settings (like `webCorsOriginList`), you can find the `config.json` inside your mapped volume at:
+`/config/.local/share/Anki2/addons21/custom_anki_connect/config.json`
 
 ---
 
