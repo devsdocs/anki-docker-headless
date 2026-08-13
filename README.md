@@ -1,4 +1,4 @@
-# 🐳 Anki Docker Server (Web GUI + AnkiConnect)
+# 🐳 Anki Docker Server (Web GUI + Custom AnkiConnect Fork)
 
 This repository provides a complete, Dockerized environment for running the Anki desktop application alongside the AnkiConnect API. It features a fully accessible Web GUI (so you can manage syncs, decks, and settings in your browser) while silently exposing the AnkiConnect API for integrations.
 
@@ -14,6 +14,7 @@ The short answer: **AnkiWeb is for humans; AnkiConnect is for machines.**
 ## ✨ Features
 - **Web-based GUI**: Access the full Anki desktop application directly from your web browser. No VNC client needed.
 - **Auto-Updating**: Automatically fetches and installs the latest stable Qt6 release of Anki on build.
+- **Custom AnkiConnect Fork**: Bundles a heavily modified, [custom fork of AnkiConnect](https://github.com/devsdocs/anki-connect) natively engineered for Docker environments, environment variable configuration, and secure `0.0.0.0` binding.
 - **Environment Variable Security**: Strictly protects the UI with the required `VNC_PASSWORD` token.
 
 ---
