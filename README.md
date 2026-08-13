@@ -59,7 +59,7 @@ Click **Deploy** at the top right of the screen. Wait for the build to finish, a
 ---
 
 #### 📂 Bring Your Own Data (Optional)
-If you already use Anki on your desktop and want to skip the massive initial download, you can upload your existing local Anki folder directly into your server's `/config/.local/share/Anki2` directory via SFTP before starting the container:
+If you already use Anki on your desktop and want to skip the massive initial download, you can upload your existing local Anki folder directly into your server's `/config/Anki2` directory via SFTP before starting the container:
 - **Windows:** `%APPDATA%\Anki2`
 - **Mac:** `~/Library/Application Support/Anki2`
 - **Linux:** `~/.local/share/Anki2`
@@ -115,7 +115,7 @@ Examples:
 - `ANKICONNECT_WEBCORSORIGINLIST=http://localhost,https://my-app.com`
 - `ANKICONNECT_WEBBINDPORT=8766`
 
-*(Alternatively, you can still edit the physical `config.json` inside your mapped volume at: `/config/.local/share/Anki2/addons21/custom_anki_connect/config.json`, but environment variables will always take precedence).*
+*(Note: The startup script dynamically generates the GUI's `config.json` file inside the container based exclusively on your environment variables, ensuring the Anki UI always perfectly reflects your Coolify settings!)*
 
 ---
 
