@@ -108,8 +108,14 @@ Each language subdirectory contains its own `README.md` with specific usage inst
 ---
 
 ## 🛠️ Customizing AnkiConnect
-If you need to change advanced AnkiConnect settings (like `webCorsOriginList`), you can find the `config.json` inside your mapped volume at:
-`/config/.local/share/Anki2/addons21/custom_anki_connect/config.json`
+You can configure **any** AnkiConnect setting simply by passing an environment variable! Just prefix the setting name with `ANKICONNECT_` and make it uppercase. 
+
+Examples:
+- `ANKICONNECT_APIKEY=my_secure_password`
+- `ANKICONNECT_WEBCORSORIGINLIST=http://localhost,https://my-app.com`
+- `ANKICONNECT_WEBBINDPORT=8766`
+
+*(Alternatively, you can still edit the physical `config.json` inside your mapped volume at: `/config/.local/share/Anki2/addons21/custom_anki_connect/config.json`, but environment variables will always take precedence).*
 
 ---
 
