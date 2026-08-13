@@ -261,7 +261,8 @@ for m_name, m_def in all_models.items():
         if k in reserved:
             safe_k = f"{k}_"
             
-        fields_dart.append(f"  final {d_type}? {safe_k};")
+        nullable = "?" if d_type != 'dynamic' else ""
+        fields_dart.append(f"  final {d_type}{nullable} {safe_k};")
         constructor_dart.append(f"this.{safe_k}")
         
         if v['type'] == 'model':

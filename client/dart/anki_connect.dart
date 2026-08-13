@@ -914,7 +914,7 @@ class FindModelsByIdResponseItemTmplsItem {
   final String? afmt;
   final String? bqfmt;
   final String? bafmt;
-  final dynamic? did;
+  final dynamic did;
   final String? bfont;
   final int? bsize;
   final int? id;
@@ -974,7 +974,7 @@ class FindModelsByIdResponseItemFldsItem {
   final bool? collapsed;
   final bool? excludeFromSearch;
   final int? id;
-  final dynamic? tag;
+  final dynamic tag;
   final bool? preventDeletion;
   FindModelsByIdResponseItemFldsItem({
     this.name,
@@ -1037,7 +1037,7 @@ class FindModelsByIdResponseItem {
   final int? mod;
   final int? usn;
   final int? sortf;
-  final dynamic? did;
+  final dynamic did;
   final List<FindModelsByIdResponseItemTmplsItem>? tmpls;
   final List<FindModelsByIdResponseItemFldsItem>? flds;
   final String? css;
@@ -1119,7 +1119,7 @@ class FindModelsByNameResponseItemTmplsItem {
   final String? afmt;
   final String? bqfmt;
   final String? bafmt;
-  final dynamic? did;
+  final dynamic did;
   final String? bfont;
   final int? bsize;
   final int? id;
@@ -1179,7 +1179,7 @@ class FindModelsByNameResponseItemFldsItem {
   final bool? collapsed;
   final bool? excludeFromSearch;
   final int? id;
-  final dynamic? tag;
+  final dynamic tag;
   final bool? preventDeletion;
   FindModelsByNameResponseItemFldsItem({
     this.name,
@@ -1242,7 +1242,7 @@ class FindModelsByNameResponseItem {
   final int? mod;
   final int? usn;
   final int? sortf;
-  final dynamic? did;
+  final dynamic did;
   final List<FindModelsByNameResponseItemTmplsItem>? tmpls;
   final List<FindModelsByNameResponseItemFldsItem>? flds;
   final String? css;
@@ -1448,7 +1448,7 @@ class CreateModelResponseTmplsItem {
   final int? ord;
   final String? qfmt;
   final String? afmt;
-  final dynamic? did;
+  final dynamic did;
   final String? bqfmt;
   final String? bafmt;
   CreateModelResponseTmplsItem({
