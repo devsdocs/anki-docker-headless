@@ -11,9 +11,20 @@ rm -rf "$ANKI_DATA_DIR/addons21/custom_anki_connect"
 mkdir -p "$ANKI_DATA_DIR/addons21/custom_anki_connect"
 cp -r /opt/custom_anki_connect/. "$ANKI_DATA_DIR/addons21/custom_anki_connect/"
 
-# Configure AnkiConnect defaults (only if not already set by Coolify/Docker)
-export ANKICONNECT_WEBBINDADDRESS="${ANKICONNECT_WEBBINDADDRESS:-0.0.0.0}"
-export ANKICONNECT_WEBBINDPORT="${ANKICONNECT_WEBBINDPORT:-8766}"
+# Generate config.json dynamically based on environment variables so the GUI stays perfectly in sync
+jq -n \
+  --arg apiKey "${ANKICONNECT_APIKEY:-}" \
+  --arg webBindAddress "${ANKICONNECT_WEBBINDADDRESS:-0.0.0.0}" \
+  --arg webBindPort "${ANKICONNECT_WEBBINDPORT:-8766}" \
+  --arg webCorsOriginList "${ANKICONNECT_WEBCORSORIGINLIST:-http://localhost}" \
+  '{
+    apiKey: (if $apiKey == "" then null else $apiKey end),
+    apiLogPath: null,
+    webBindAddress: $webBindAddress,
+    webBindPort: ($webBindPort | tonumber),
+    webCorsOriginList: ($webCorsOriginList | split(",")),
+    ignoreOriginList: []
+  }' > "$ANKI_DATA_DIR/addons21/custom_anki_connect/config.json"
 
 export BROWSER=/bin/true
 
