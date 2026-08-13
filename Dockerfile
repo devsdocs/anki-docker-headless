@@ -7,7 +7,7 @@ ENV HOME=/config
 
 # Install dependencies required by Anki Qt6 (from official setup-anki action)
 RUN add-pkg wget curl unzip python3 zstd jq ca-certificates xdg-utils \
-    shared-mime-info desktop-file-utils hicolor-icon-theme \
+    shared-mime-info desktop-file-utils hicolor-icon-theme media-types \
     libnss3 libegl1 libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 \
     libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 \
     libopengl0 libglib2.0-0 libxcb-xinerama0 libxcb-cursor0 fontconfig \
@@ -21,6 +21,9 @@ RUN add-pkg wget curl unzip python3 zstd jq ca-certificates xdg-utils \
     libtiff6 libudev1 libwebp7 libwebpdemux2 libwebpmux3 libxcb-dri3-0 libxcb-glx0 \
     libxcb-render0 libxcb-shape0 libxcb-shm0 libxcb-sync1 libxcb-xfixes0 libxcb-xkb1 \
     libxcb1 zlib1g libzstd1 libgdk-pixbuf-2.0-0 libcups2t64 libgstreamer-plugins-bad1.0-0 libx11-6
+    
+# Ensure .mjs is recognized properly by python mimetypes used in Anki's local web server
+RUN echo "application/javascript mjs" >> /etc/mime.types
 
 # Set Anki Version (Hardcoded to avoid GitHub API rate limits during build)
 ARG ANKI_VERSION=24.06.3
