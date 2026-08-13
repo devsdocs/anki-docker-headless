@@ -1,0 +1,3 @@
+[submodule "custom_anki_connect"]
+	path = custom_anki_connect
+	url = ../anki-connect

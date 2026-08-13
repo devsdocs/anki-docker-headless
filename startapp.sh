@@ -3,7 +3,20 @@ set -e
 
 # Define Anki data paths (using /config which is mapped to a persistent volume by the base image)
 export ANKI_DATA_DIR=/config/.local/share/Anki2
-export ANKICONNECT_ID=2055492159
+# Ensure the official AnkiConnect is removed to prevent conflicts
+mkdir -p "$ANKI_DATA_DIR/addons21"
+rm -rf "$ANKI_DATA_DIR/addons21/2055492159"
+
+# Copy the custom AnkiConnect addon to the addons directory
+rm -rf "$ANKI_DATA_DIR/addons21/custom_anki_connect"
+cp -a /opt/custom_anki_connect "$ANKI_DATA_DIR/addons21/custom_anki_connect"
+
+# Update config.json to listen on all interfaces and use custom port 8766
+if [ -f "$ANKI_DATA_DIR/addons21/custom_anki_connect/config.json" ]; then
+    jq '.webBindAddress = "0.0.0.0" | .webBindPort = 8766' "$ANKI_DATA_DIR/addons21/custom_anki_connect/config.json" > /tmp/ac_config.json
+    mv /tmp/ac_config.json "$ANKI_DATA_DIR/addons21/custom_anki_connect/config.json"
+fi
+
 export BROWSER=/bin/true
 
 # Prevent QtWebEngine from routing localhost requests through any configured proxies

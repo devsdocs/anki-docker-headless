@@ -51,9 +51,12 @@ RUN ARCH=$(uname -m) && \
     cd / && \
     rm -rf /tmp/*
 
+# Copy custom AnkiConnect plugin to a staging directory
+COPY custom_anki_connect/plugin /opt/custom_anki_connect
+
 # Copy our custom startup script that the baseimage will execute
 COPY startapp.sh /startapp.sh
 RUN chmod +x /startapp.sh
 
-# Expose AnkiConnect API port (Port 5800 for the Web GUI is already exposed by the base image)
-EXPOSE 8765
+# Expose Custom AnkiConnect API port
+EXPOSE 8766
