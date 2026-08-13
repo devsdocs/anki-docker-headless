@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e
 
-# Define Anki data paths (using /config which is mapped to a persistent volume by the base image)
-export ANKI_DATA_DIR=/config/.local/share/Anki2
+# Define Anki data paths explicitly to bypass any XDG_DATA_HOME overrides from baseimage
+export ANKI_DATA_DIR=/config/Anki2
 # (Optional) The official AnkiConnect (2055492159) can safely coexist since we use port 8766
 mkdir -p "$ANKI_DATA_DIR/addons21"
 
@@ -30,5 +30,5 @@ mkdir -p "$ANKI_DATA_DIR/addons21/mjs_mime_fix"
 echo "import mimetypes; mimetypes.add_type('application/javascript', '.mjs')" > "$ANKI_DATA_DIR/addons21/mjs_mime_fix/__init__.py"
 
 
-# Start Anki
-exec anki
+# Start Anki and force it to use our explicit data directory
+exec anki -b "$ANKI_DATA_DIR"
