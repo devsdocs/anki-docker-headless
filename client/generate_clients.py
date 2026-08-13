@@ -38,10 +38,10 @@ def infer_schema(value, name_hint, models_dict):
     return {"type": "any"}
 
 for action_name, action_body in matches:
-    req_regex = re.compile(r'<summary><i>Sample request.*?</i></summary>\s*```json\n(.*?)\n```', re.DOTALL)
+    req_regex = re.compile(r'<summary><i>Sample request.*?</i></summary>\s*```json\n(.*?)\n\s*```', re.DOTALL)
     req_match = req_regex.search(action_body)
     
-    res_regex = re.compile(r'<summary><i>Sample result.*?</i></summary>\s*```json\n(.*?)\n```', re.DOTALL)
+    res_regex = re.compile(r'<summary><i>Sample result.*?</i></summary>\s*```json\n(.*?)\n\s*```', re.DOTALL)
     res_match = res_regex.search(action_body)
     
     params_schema = {}

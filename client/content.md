@@ -718,7 +718,7 @@ Documentation for currently supported actions is split up by category and is ref
 
 #### `answerCards`
 
-*   Answer cards. Ease is between 1 (Again) and 4 (Easy). Will start the timer immediately before answering. Returns `true` if card exists, `false` otherwise.
+*   Answer cards. Ease is between 1 (Again) and 4 (Easy). Optionally provide `time` (in milliseconds) to log the actual review time. Will start the timer immediately before answering. Returns `true` if card exists, `false` otherwise.
 
     <details>
     <summary><i>Sample request:</i></summary>
@@ -731,7 +731,8 @@ Documentation for currently supported actions is split up by category and is ref
             "answers": [
                 {
                     "cardId": 1498938915662,
-                    "ease": 2
+                    "ease": 2,
+                    "time": 10500
                 },
                 {
                     "cardId": 1502098034048,
