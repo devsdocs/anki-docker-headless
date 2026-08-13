@@ -26,7 +26,7 @@ RUN add-pkg wget curl unzip python3 zstd jq ca-certificates xdg-utils \
 RUN echo "application/javascript mjs" >> /etc/mime.types
 
 # Set Anki Version (Hardcoded to avoid GitHub API rate limits during build)
-ARG ANKI_VERSION=24.06.3
+ARG ANKI_VERSION=26.08.1
 ENV ANKI_VERSION=${ANKI_VERSION}
 
 # Disable QtWebEngine sandbox to prevent crashes in Docker environments
