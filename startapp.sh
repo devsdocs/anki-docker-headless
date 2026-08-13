@@ -10,9 +10,9 @@ mkdir -p "$ANKI_DATA_DIR/addons21"
 rm -rf "$ANKI_DATA_DIR/addons21/custom_anki_connect"
 cp -a /opt/custom_anki_connect "$ANKI_DATA_DIR/addons21/custom_anki_connect"
 
-# Configure AnkiConnect to listen on all interfaces and force port 8766
-export ANKICONNECT_WEBBINDADDRESS="0.0.0.0"
-export ANKICONNECT_WEBBINDPORT=8766
+# Configure AnkiConnect defaults (only if not already set by Coolify/Docker)
+export ANKICONNECT_WEBBINDADDRESS="${ANKICONNECT_WEBBINDADDRESS:-0.0.0.0}"
+export ANKICONNECT_WEBBINDPORT="${ANKICONNECT_WEBBINDPORT:-8766}"
 
 export BROWSER=/bin/true
 
