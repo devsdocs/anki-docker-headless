@@ -53,7 +53,8 @@ RUN ARCH=$(uname -m) && \
 
 # Download and prepare custom AnkiConnect plugin directly from the repository
 RUN wget -qO- https://github.com/devsdocs/anki-connect/archive/refs/heads/master.tar.gz | tar xz -C /tmp && \
-    cp -r /tmp/anki-connect-master/plugin /opt/custom_anki_connect && \
+    mkdir -p /opt/custom_anki_connect && \
+    cp -r /tmp/anki-connect-master/plugin/. /opt/custom_anki_connect/ && \
     rm -rf /tmp/anki-connect-master
 
 # Copy our custom startup script that the baseimage will execute

@@ -8,7 +8,8 @@ mkdir -p "$ANKI_DATA_DIR/addons21"
 
 # Copy the custom AnkiConnect addon to the addons directory
 rm -rf "$ANKI_DATA_DIR/addons21/custom_anki_connect"
-cp -a /opt/custom_anki_connect "$ANKI_DATA_DIR/addons21/custom_anki_connect"
+mkdir -p "$ANKI_DATA_DIR/addons21/custom_anki_connect"
+cp -r /opt/custom_anki_connect/. "$ANKI_DATA_DIR/addons21/custom_anki_connect/"
 
 # Configure AnkiConnect defaults (only if not already set by Coolify/Docker)
 export ANKICONNECT_WEBBINDADDRESS="${ANKICONNECT_WEBBINDADDRESS:-0.0.0.0}"
